@@ -15,58 +15,68 @@ from lib import User, AppointmentWish
 # css selectors:
 # https://www.w3schools.com/cssref/css_selectors.php
 
+# todo: this happens in main in the end:
 person_app = AppointmentWish()
 
 driver = webdriver.Firefox()
 driver.get("https://service.berlin.de/terminvereinbarung/")
-driver.implicitly_wait(4)
+driver.implicitly_wait(3)
 
-# TODO: distinguish type of appointment
-# for now only "Personalausweis beantragen" is possible
-
+# todo: define function/functions for process below:
 while True:
     if person_app.appointment_type == "Personalausweis":
-        element_1 = driver.find_element(By.LINK_TEXT, "Personalausweis beantragen")
-        element_1.click()
+        elem_perso = driver.find_element(By.LINK_TEXT, "Personalausweis beantragen")
+        elem_perso.click()
         break
     elif person_app.appointment_type == "Reisepass":
-        element_1 = driver.find_element(By.LINK_TEXT, "Reisepass beantragen")
-        element_1.click()
+        elem_pass = driver.find_element(By.LINK_TEXT, "Reisepass beantragen")
+        elem_pass.click()
         break
     elif person_app.appointment_type == "Wohnungsanmeldung":
-        element_1 = driver.find_element(By.LINK_TEXT, "Anmelden einer Wohnung")
-        element_1.click()
+        elem_wohnung = driver.find_element(By.LINK_TEXT, "Anmelden einer Wohnung")
+        elem_wohnung.click()
         break
     else:
         print("Wrong input! Please enter the type of appointment correctly!")
 
-element_2 = driver.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
-element_2.click()
+elem_berlinweit = driver.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
+elem_berlinweit.click()
 
-element_3 = []
-termin_search = True
+# btn_buchen = []
+termin_search = True  # still looking for an appointment?
 
+# todo: improve execpt statements (distinguish expected from unexpected errors)
 while termin_search:
     try:
-        element_3 = driver.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-        termin_search = False
+        # todo: maybe select by class "buchbar" instead (that skips available dates for the current day - too soon?)
+        # eventually make a list of possible class buchbar elements and filter
+        elem_buchen = driver.find_element(By.CSS_SELECTOR, "[title~=buchen]")
+        elem_buchen.click()
+        break  # if appointment date found leave
     except:
-        try:
-            element_4 = driver.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-            element_4.click()
-            element_3 = driver.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-            # print("el3:", element_3)
-            element_3.click()
-        except: # specify for expected and unexpected error?
+        try:  # if no appointment on calendar page 1: try next calender page
+            elem_next = driver.find_element(By.CSS_SELECTOR, "[title~=nächster]")
+            elem_next.click()
+            elem_buchen = driver.find_element(By.CSS_SELECTOR, "[title~=buchen]")
+            elem_buchen.click()
+            break  # if appointment date found leave
+        except:
             print('Leider kein buchbarer Termin vorhanden')
-            termin_search = False
+            termin_search = False  # not looking for appointment anymore, because no dates are available
 
 if termin_search:
-    element_5 = driver.find_elements(By.CSS_SELECTOR, "[title~=eintragen...]")
+    elem_place_time = driver.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
+    # todo: specify time and place
+    if type(elem_place_time) == list:  # if more than one appointment
+        for available_appointment in elem_place_time:
+            available_appointment.click()  # click on first appointment
+            break
+    else:
+        elem_place_time.click()
+
 # for element in element_5:
 # if preferred_borough
 
 # if __name__ == "__main__":
 #     browser = webdriver.Firefox()
 #     browser.get('http://selenium.dev/')
-#     print("el3:", element_3)

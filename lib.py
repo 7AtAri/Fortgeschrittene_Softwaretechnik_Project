@@ -52,7 +52,8 @@ class AppointmentWish:
               "- Reisepass\n"
               "- Personalauseis\n"
               "- Wohnungsanmeldung\n")
-        #     "- Gewerbeanmeldung\n")
+        #     "- Gewerbeanmeldung\n") # Gewerbeanmeldung appointments are not "berlinweit"
+        #     - focus on most common appointment wishes
         self.appointment_type = input("Type of Appointment:")
         # todo try and except wrong input
 
@@ -73,15 +74,16 @@ class AppointmentWish:
         self.preferred_borough = input("Preferred district office:")
         # todo try and except wrong input
 
-        print("Choose preferred Weekday:\n"
-              "- Monday\n"
-              "- Tuesday\n"
-              "- Wednesday\n"
-              "- Thursday\n"
-              "- Friday\n"
-              "- None")
-        self.preferred_weekday = input("Preferred weekday:")
-        # todo try and except wrong input
+        # picking certain days eventually too complicated because only date is in html not weekday
+        # print("Choose preferred Weekday:\n"
+        #       "- Monday\n"
+        #       "- Tuesday\n"
+        #       "- Wednesday\n"
+        #       "- Thursday\n"
+        #       "- Friday\n"
+        #       "- None")
+        # self.preferred_weekday = input("Preferred weekday:")
+        # # todo try and except wrong input
 
         print("Choose preferred Daytime:\n"
               "- Morning\n"
@@ -92,6 +94,6 @@ class AppointmentWish:
         # todo try and except wrong input
 
 
-if __name__ == "__main__":
-    a = User()
-    b = AppointmentWish()
+# if __name__ == "__main__":
+    # a = User()
+    # b = AppointmentWish()
