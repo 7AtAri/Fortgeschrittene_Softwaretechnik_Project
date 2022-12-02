@@ -45,14 +45,14 @@ class AppointmentWish:
     """
 
     #  todo later evtl.
-    #  -> add optional input 1) preferred time 2) preferred day 3) preferred area
+    #  -> improve day, time preferences
 
     def __init__(self):
         print("Choose type of Appointment:\n"
               "- Reisepass\n"
               "- Personalauseis\n"
-              "- Wohnungsanmeldung\n"
-              "- Gewerbeanmeldung\n")
+              "- Wohnungsanmeldung\n")
+        #     "- Gewerbeanmeldung\n")
         self.appointment_type = input("Type of Appointment:")
         # todo try and except wrong input
 
@@ -68,7 +68,8 @@ class AppointmentWish:
               "- Spandau\n"
               "- Steglitz-Zehlendorf\n"
               "- Tempelhof-Schöneberg\n"
-              "- Treptow-Köpenik\n")
+              "- Treptow-Köpenik\n"
+              "- None")
         self.preferred_borough = input("Preferred district office:")
         # todo try and except wrong input
 
@@ -77,13 +78,15 @@ class AppointmentWish:
               "- Tuesday\n"
               "- Wednesday\n"
               "- Thursday\n"
-              "- Friday\n")
+              "- Friday\n"
+              "- None")
         self.preferred_weekday = input("Preferred weekday:")
         # todo try and except wrong input
 
         print("Choose preferred Daytime:\n"
               "- Morning\n"
-              "- Afternoon\n")
+              "- Afternoon\n"
+              "- None")
 
         self.preferred_daytime = input("Preferred Daytime:")
         # todo try and except wrong input
