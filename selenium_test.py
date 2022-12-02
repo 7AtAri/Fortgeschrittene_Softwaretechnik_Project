@@ -1,6 +1,9 @@
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 from lib import User, AppointmentWish
 
 # selenium docu:
@@ -15,8 +18,9 @@ from lib import User, AppointmentWish
 # css selectors:
 # https://www.w3schools.com/cssref/css_selectors.php
 
-# todo: this happens in main in the end:
+# todo: this happens in main
 person_app = AppointmentWish()
+person = User()
 
 driver = webdriver.Firefox()
 driver.get("https://service.berlin.de/terminvereinbarung/")
@@ -74,8 +78,26 @@ if termin_search:
     else:
         elem_place_time.click()
 
-# for element in element_5:
-# if preferred_borough
+# todo -> make function:
+# automatically input name:
+elem_family_name = driver.find_element(By.ID, "familyName")
+elem_family_name.send_keys(person.first_name + " " + person.last_name)
+# automatically input email address:
+elem_email = driver.find_element(By.ID, "email")
+elem_email.send_keys(person.email)
+# automatically select from drop down menu:
+elem_select_eval = Select(WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
+elem_select_eval.select_by_value('0')
+
+# agb Checkbox:
+elem_nutzungsbedingungen = driver.find_element(By.ID, "agbgelesen")
+elem_nutzungsbedingungen.click()
+
+# todo: only uncomment in the end - so that no actual appointment is booked every time
+# submit appointment registration:
+# btn_termin_eintragen=driver.find_element(By.ID, "register_submit")
+# btn_termin_eintrage.click()
+
 
 # if __name__ == "__main__":
 #     browser = webdriver.Firefox()
