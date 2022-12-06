@@ -106,8 +106,13 @@ place it in /usr/bin or /usr/local/bin.
 ### 9 - IDE
 I use PyCharm as IDE for the project. Since I do the project in Python,
 PyCharm is the most obvious choice. Since I have not worked with PyCharm before, I also think this is a good chance to get familiar with it a little.
+
+I had to personalize some shortcuts.
 My favorite Key-Shortcuts are: 
-- comment/uncomment 
+
+- indent (TAB)/ unindent (SHIFT TAB)
+- replace (Command R)
+- multiline (out)comment (Command -) 
 
 ### 10 - DSL
 ```diff 
