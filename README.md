@@ -85,19 +85,29 @@ place it in /usr/bin or /usr/local/bin.
 I chose pybuilder, since pybuilder is the most recommended built tool for python. 
 
 ```diff 
-- todo: create and add link to build file directory
+- TODO:
+- integrate build process with pybuilder in Github Actions
+- (create file structure and add link to build file directory)
 ```
 
 ### 7 - Unit-Tests
 ```diff 
+- TODO:
 - Integrate some nice Unit-Tests in your Code to be integrated into the Build
+- Integrate the tests into Github Actions
 ```
 
 ### 8 - Continuous Delivery:
+
+For CD I am using Github Actions. 
+I already set up sonarcube to be part of my Github Actions workflow.
+Next I will add testing and building to the workflow.
+https://docs.github.com/de/actions/automating-builds-and-tests/building-and-testing-python
+
 ```diff 
+- TODO:
 - show me your pipeline using 
-- e.g. Jenkins, Travis-CI, Circle-CI, GitHub Action, GitLab CI, etc.
-- E.g. you can also use Jenkins Pipelining or BlueOcean, etc.
+- GitHub Action
 - But at least insert more than 2 script calls as done in the lecture! 
 - (e.g. also call Ant or Gradle or something else).
 ```
@@ -115,6 +125,7 @@ My favorite Key-Shortcuts are:
 
 ### 10 - DSL
 ```diff 
+- TODO:
 - Create a small DSL Demo example snippet in your code 
 - even if it does not contribute to your project
 - (hence it can also be in another language).
@@ -122,6 +133,7 @@ My favorite Key-Shortcuts are:
 
 ### 11 - Functional Programming:
 ```diff 
+- TODO:
 - prove that you have covered all functional aspects in your code as:
 - only final data structures
 - (mostly) side effect free functions
