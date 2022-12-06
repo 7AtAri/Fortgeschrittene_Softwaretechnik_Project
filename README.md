@@ -82,11 +82,10 @@ place it in /usr/bin or /usr/local/bin.
 ```
 
 ### 6 - Build Management
+I chose pybuilder, since pybuilder is the most recommended built tool for python. 
+
 ```diff 
-- with any Build System as Ant, Maven, Gradle, etc. 
-- (only Travis is perhaps not enough) 
-- Do e.g. generate Docs, call tests, etc. 
-- (it could be also disconnected from the project just to learn a build tool!)
+- todo: create and add link to build file directory
 ```
 
 ### 7 - Unit-Tests
