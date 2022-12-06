@@ -1,4 +1,7 @@
-name: Build
+# check for more input on how to run tests and builds via github actions:
+# https://docs.github.com/de/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Build 
 on:
   push:
     branches:
