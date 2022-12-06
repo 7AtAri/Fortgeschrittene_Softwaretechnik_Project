@@ -13,14 +13,14 @@ e.g. possible use cases:
 - Booking an appointment to get a (new) passport
 - Booking an appointment to get a (new) ID
 
-### Requieries:
+### Requirements:
 What you will need to install the project:
 
 install the following libraries via pip: 
 1) selenium
 2) requests
-3) beautiful soup (bs4)
-4) ...
+3) beautiful soup 
+4) bs4
 
 or use the provided requirements text file:
 ```diff 
