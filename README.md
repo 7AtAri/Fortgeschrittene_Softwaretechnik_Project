@@ -13,17 +13,19 @@ e.g. possible use cases:
 - Booking an appointment to get a (new) passport
 - Booking an appointment to get a (new) ID
 
-### Requieries:
+### Requirements:
 What you will need to install the project:
 
 install the following libraries via pip: 
 1) selenium
 2) requests
-3) beautiful soup (bs4)
-4) ...
+3) beautiful soup 
+4) bs4
 
 or use the provided requirements text file:
+```diff 
 pip install -r requirements.txt
+```
 
 please also download and install a selenium webdriver for your specific browser:
 https://pypi.org/project/selenium/
@@ -37,6 +39,7 @@ place it in /usr/bin or /usr/local/bin.
 ## (B) Project: Online Appointment/Reservation Bot
 
 ### 1 - Git
+[go to: Commit History](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits)
 
 ### 2 - UML 
 ```diff 
@@ -58,11 +61,17 @@ place it in /usr/bin or /usr/local/bin.
 ```
 
 ### 4 - Metrics
-```diff 
-- at least two. 
-- Sonarcube would be great. 
-- Other non-trivial metrics are also fine.
-```
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+
 
 ### 5 - Clean Code Development: 
 ```diff 
@@ -97,8 +106,13 @@ place it in /usr/bin or /usr/local/bin.
 ### 9 - IDE
 I use PyCharm as IDE for the project. Since I do the project in Python,
 PyCharm is the most obvious choice. Since I have not worked with PyCharm before, I also think this is a good chance to get familiar with it a little.
+
+I had to personalize some shortcuts.
 My favorite Key-Shortcuts are: 
-- comment/uncomment 
+
+- indent (TAB)/ unindent (SHIFT TAB)
+- replace (Command R)
+- multiline (out)comment (Command -) 
 
 ### 10 - DSL
 ```diff 
