@@ -72,6 +72,8 @@ place it in /usr/bin or /usr/local/bin.
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 
+Obviously the code still has to be improved.
+A lot of TODOs are causing "Code Smells" and lead to some "Technical Debt".
 
 ### 5 - Clean Code Development: 
 ```diff 
