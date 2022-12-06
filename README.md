@@ -23,7 +23,9 @@ install the following libraries via pip:
 4) ...
 
 or use the provided requirements text file:
+```diff 
 pip install -r requirements.txt
+```
 
 please also download and install a selenium webdriver for your specific browser:
 https://pypi.org/project/selenium/
