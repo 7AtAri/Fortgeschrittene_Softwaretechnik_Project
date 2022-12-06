@@ -39,7 +39,7 @@ place it in /usr/bin or /usr/local/bin.
 ## (B) Project: Online Appointment/Reservation Bot
 
 ### 1 - Git
-https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits/main
+https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits/master
 
 ### 2 - UML 
 ```diff 
