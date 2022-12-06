@@ -2,7 +2,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
 from lib import User, AppointmentWish
 
@@ -86,7 +86,7 @@ elem_family_name.send_keys(person.first_name + " " + person.last_name)
 elem_email = driver.find_element(By.ID, "email")
 elem_email.send_keys(person.email)
 # automatically select from drop down menu:
-elem_select_eval = Select(WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
+elem_select_eval = Select(WebDriverWait(driver, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
 elem_select_eval.select_by_value('0')
 
 # agb Checkbox:
