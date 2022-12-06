@@ -19,13 +19,17 @@ What you will need to install the project:
 install the following libraries via pip: 
 1) selenium
 2) requests
-3) ...
+3) beautiful soup (bs4)
+4) ...
 
-download and install a selenium webdriver for your browser:
+or use the provided requirements text file:
+pip install -r requirements.txt
+
+please also download and install a selenium webdriver for your specific browser:
 https://pypi.org/project/selenium/
 
 Firefox, for example, requires geckodriver, 
-which needs to be installed before the below examples can be run. 
+which needs to be installed before the code can be run. 
 Make sure it’s in your PATH, e. g., 
 place it in /usr/bin or /usr/local/bin.
 
