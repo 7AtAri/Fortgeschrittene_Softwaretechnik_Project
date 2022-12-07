@@ -19,15 +19,7 @@ from user_input import User, AppointmentWish
 # css selectors:
 # https://www.w3schools.com/cssref/css_selectors.php
 
-# # todo: delete if it runs in main
-# person_app = AppointmentWish()
-# person = User()
-#
-# driver = webdriver.Firefox()
-# driver.get("https://service.berlin.de/terminvereinbarung/")
-# driver.implicitly_wait(3)
 
-# todo: define function/functions for process below:
 def search_appment_type(person_app1: AppointmentWish, driver1):
     while True:
         if person_app1.appointment_type == "Personalausweis":
@@ -129,5 +121,3 @@ if __name__ == "__main__":
     select_appment(driver)
     fillform_and_book_appment(person, driver)
 
-#     browser = webdriver.Firefox()
-#     browser.get('http://selenium.dev/')
