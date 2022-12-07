@@ -22,9 +22,10 @@
 # Load needed libraries:
 
 import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 from user_input import User, AppointmentWish
 from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 import civilservice_bot as bot
 
