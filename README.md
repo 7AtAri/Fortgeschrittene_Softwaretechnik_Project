@@ -88,7 +88,7 @@ Quality Gate fails due to missing test coverage.
 I chose pybuilder, since pybuilder is the most recommended built tool for python. 
 
 My build file can be found [here](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/build.py)
-and my [build directories will be added here soon]
+and my [build directories]() will be added here soon.
 
 
 ### 7 - Unit-Tests
