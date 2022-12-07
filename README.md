@@ -101,17 +101,10 @@ and my [build directories]() will be added here soon.
 ### 8 - Continuous Delivery:
 
 For CD I am using Github Actions. 
-I already set up sonarcube to be part of my Github Actions workflow.
-Next I will add testing and building to the workflow.
-https://docs.github.com/de/actions/automating-builds-and-tests/building-and-testing-python
+I already set up sonarcube and pybuilder to be part of my Github Actions workflow.
 
-```diff 
-- TODO:
-- show me your pipeline using 
-- GitHub Action
-- But at least insert more than 2 script calls as done in the lecture! 
-- (e.g. also call Ant or Gradle or something else).
-```
+Next I will add testing to the workflow.
+https://docs.github.com/de/actions/automating-builds-and-tests/building-and-testing-python
 
 ### 9 - IDE
 I use PyCharm as IDE for the project. Since I do the project in Python,
