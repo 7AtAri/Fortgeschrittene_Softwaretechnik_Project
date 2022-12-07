@@ -86,13 +86,11 @@ Quality Gate fails due to missing test coverage.
 
 ### 6 - Build Management
 I chose pybuilder, since pybuilder is the most recommended built tool for python. 
-My build file can be found [here](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/build.py)
-you can find my build history in my [log file]()
+My build file can be found [here](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/build.py).
 
 ```diff 
 - TODO:
-- integrate build process with pybuilder in Github Actions
-- (create file structure and add link to build file directory)
+- (add link to build file directory)
 ```
 
 ### 7 - Unit-Tests
