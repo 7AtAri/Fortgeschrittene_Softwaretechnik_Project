@@ -85,6 +85,8 @@ A lot of TODOs are causing "Code Smells" and lead to some "Technical Debt".
 
 ### 6 - Build Management
 I chose pybuilder, since pybuilder is the most recommended built tool for python. 
+My build file can be found [here](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/build.py)
+you can find my build history in my [log file]()
 
 ```diff 
 - TODO:
