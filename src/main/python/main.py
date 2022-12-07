@@ -70,7 +70,7 @@ if not termin_search1:
     bot.fillform_and_book_appment(person, driver)
 
 
-# todo: check if following are usefull
+# todo: check if following functions are usefull
 def get_content(url1):
     page_html = requests.get(url1)
     # check if url could not be accessed:
