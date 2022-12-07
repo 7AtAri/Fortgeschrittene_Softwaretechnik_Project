@@ -75,7 +75,6 @@ place it in /usr/bin or /usr/local/bin.
 
 Obviously the code still has to be improved.
 A lot of TODOs are causing "Code Smells" and lead to some "Technical Debt".
-Quality Gate fails due to missing test coverage.
 
 ### 5 - Clean Code Development: 
 ```diff 
