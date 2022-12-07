@@ -19,6 +19,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
+      - uses: pybuilder/build@master
+      
       - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -29,4 +31,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - uses: pybuilder/build@master
+      
