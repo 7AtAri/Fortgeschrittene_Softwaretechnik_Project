@@ -2,7 +2,7 @@
 # Project :  Terminbuchungs-Bot
 
 
-""" TODO:
+""" STEPS:
 # 1) User Input
 # Name, type of appointment, email-address, optional: preferred day, optional: preferred time, optional: preferred area
 
@@ -15,41 +15,80 @@
 
 # 4) Bot
 # -> choose type of appointment
-# -> Booking of first fitting DATE, TIME
 # -> inserting: email, name
-
-
+# -> Booking a fitting DATE, TIME
 """
 
 # Load needed libraries:
 
 import requests
 from bs4 import BeautifulSoup
-
-
+from user_input import User, AppointmentWish
+from selenium.webdriver.firefox.options import Options
 # import datetime #for scheduling
+# from civilservice_bot import ...
+
 
 # 1) User input and class User:
-# see lib.py
+# see user_input.py
+
+person_app = AppointmentWish()
+person = User()
 
 # 2) Scheduler
 
-# 3) Web scraper
+# 3) Web scraper and Automation
 
+# make sure the driver is in your path
+# DRIVER_PATH = 'geckodriver'
+# driver = webdriver.Firefox(executable_path=DRIVER_PATH)
+# all options for selenium with firefox:
+# https://www.selenium.dev/selenium/docs/api/py/webdriver_firefox/selenium.webdriver.firefox.options.html
+
+options = Options()
+options.headless = True  # headless mode means that the code executes in the background
+
+url = "https://service.berlin.de/terminvereinbarung/"
+
+
+def create_driver(url1):
+    driver = webdriver.Firefox()
+    driver.get(url1)
+    driver.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
+    return driver
+
+
+search_appment_type(person_app, driver)
+chose_appment_location(person_app, driver)
+termin_search1: bool = find_appment(person_app, driver)
+if not termin_search1:
+    select_appment(driver)
+    fillform_and_book_appment(person, driver)
+
+
+# todo: decide what to keep of the old code:
 # obtain content from webpage with request:
-def get_url(add_info=None):
-    return "https://service.berlin.de/terminvereinbarung/" + str(add_info)
+def get_url(url1, add_info=None):
+    return url1 + str(add_info)
 
 
 def get_content(add_info=None):
-    url = get_url(add_info=None)
+    url_content = get_url(add_info=None)
     page_html = requests.get(get_url())
 
     # check if url could not be accessed:
+    if check_page_status(url1):
+        return page_html
+
+
+
+def check_page_status(url1) -> bool:
+    page_html = requests.get(url1)
     if page_html.status_code != 200:
         print("URL Page Information not accessible")
-        return
-    return page_html
+        return true
+    else:
+        return false
 
 
 # page_html_out = get_content()

@@ -71,7 +71,7 @@ class AppointmentWish:
               "- Tempelhof-Schöneberg\n"
               "- Treptow-Köpenik\n"
               "- None")
-        self.preferred_borough = input("Preferred district office:")
+        self.preferred_district = input("Preferred district office:")
         # todo try and except wrong input
 
         # picking certain days eventually too complicated because only date is in html not weekday
