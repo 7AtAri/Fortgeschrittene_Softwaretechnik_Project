@@ -47,6 +47,7 @@ person = User()
 # all options for selenium with firefox:
 # https://www.selenium.dev/selenium/docs/api/py/webdriver_firefox/selenium.webdriver.firefox.options.html
 
+# todo: check why headless does not work yet
 options = Options()
 options.headless = True  # headless mode means that the code executes in the background
 
@@ -85,15 +86,15 @@ def check_page_status(page_html) -> bool:
         return False
 
 
-if __name__ == "__main__":
-    # Ari = lib.User.user_input()
-    # print("Ari: ", Ari.first_name)
-
-    result = requests.get("https://service.berlin.de/terminvereinbarung/termin/day/")
-    print(result.status_code)  # 200 OK response indicates that page is present
-    print(result.headers)
-    # create soup object from page content with bs4:
-    soup = BeautifulSoup(result.content, 'html.parser')  # "html.parser" instead of lxml
-    # todo: create a list with all sections of class "buchbar":
-    lists = soup.find_all("section")
-    print(lists)
+# if __name__ == "__main__":
+#     # Ari = lib.User.user_input()
+#     # print("Ari: ", Ari.first_name)
+#
+#     result = requests.get("https://service.berlin.de/terminvereinbarung/termin/day/")
+#     print(result.status_code)  # 200 OK response indicates that page is present
+#     print(result.headers)
+#     # create soup object from page content with bs4:
+#     soup = BeautifulSoup(result.content, 'html.parser')  # "html.parser" instead of lxml
+#     # todo: create a list with all sections of class "buchbar":
+#     lists = soup.find_all("section")
+#     print(lists)
