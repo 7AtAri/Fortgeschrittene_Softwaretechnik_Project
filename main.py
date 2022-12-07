@@ -25,6 +25,7 @@ import requests
 from bs4 import BeautifulSoup
 from user_input import User, AppointmentWish
 from selenium.webdriver.firefox.options import Options
+
 # import datetime #for scheduling
 # from civilservice_bot import ...
 
@@ -72,18 +73,14 @@ def get_url(url1, add_info=None):
     return url1 + str(add_info)
 
 
-def get_content(add_info=None):
-    url_content = get_url(add_info=None)
-    page_html = requests.get(get_url())
-
+def get_content(url1, add_info=None):
+    page_html = requests.get(get_url(url1, add_info))
     # check if url could not be accessed:
     if check_page_status(url1):
         return page_html
 
 
-
-def check_page_status(url1) -> bool:
-    page_html = requests.get(url1)
+def check_page_status(page_html) -> bool:
     if page_html.status_code != 200:
         print("URL Page Information not accessible")
         return true
