@@ -70,10 +70,11 @@ place it in /usr/bin or /usr/local/bin.
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
+# [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 
 Obviously the code still has to be improved.
 A lot of TODOs are causing "Code Smells" and lead to some "Technical Debt".
+Quality Gate fails due to missing test coverage.
 
 ### 5 - Clean Code Development: 
 ```diff 
@@ -86,11 +87,9 @@ A lot of TODOs are causing "Code Smells" and lead to some "Technical Debt".
 ### 6 - Build Management
 I chose pybuilder, since pybuilder is the most recommended built tool for python. 
 
-```diff 
-- TODO:
-- integrate build process with pybuilder in Github Actions
-- (create file structure and add link to build file directory)
-```
+My build file can be found [here](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/build.py)
+and my [build directories]() will be added here soon.
+
 
 ### 7 - Unit-Tests
 ```diff 
