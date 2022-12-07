@@ -2,24 +2,28 @@ from pathlib import Path
 
 from pybuilder.core import use_plugin, init, Author
 
-
 use_plugin('python.core')
 use_plugin('python.install_dependencies')
 use_plugin('python.distutils')
-
+use_plugin("python.unittest")
+use_plugin("python.flake8")
+use_plugin("python.coverage")
+# use_plugin("python.sonarqube")
 use_plugin('pypi:pybuilder_pycharm_workspace')
 
 project_path = Path(__file__).resolve().parent
 
 name = project_path.name
 authors = [Author("foo", 'bar')]
-license = "Apache License, Version 2.0"
-version = '1.0.0'
+# license = "Apache License, Version 2.0"
+# version = '1.0.0'
+default_task = "publish"
 
 
 @init
-def initialise(project):
+def set_properties(project):
     project.set_property('pycharm_workspace_project_path', project_path)
+    project.set_property("coverage_break_build", False)
 
 
 # Most important part of the script below (previous one is just filling code)
