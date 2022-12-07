@@ -6,7 +6,6 @@ class User:
         last name (str)
         email (str)
     """
-
     # constructor:
     def __init__(self):
         print("please enter some information about yourself.")
@@ -40,13 +39,11 @@ class AppointmentWish:
     Relevant information about the appointment
      Attributes:
         - Type of Appointment
-        - Preferred Borough
-        - Preferred Times
+        - evtl. Preferred Borough
+        - evtl. Preferred Times
     """
-
     #  todo later evtl.
     #  -> improve day, time preferences
-
     def __init__(self):
         print("Choose type of Appointment:\n"
               "- Reisepass\n"
@@ -57,22 +54,22 @@ class AppointmentWish:
         self.appointment_type = input("Type of Appointment:")
         # todo try and except wrong input
 
-        print("Choose preferred district office:\n"
-              "- Charlottenburg-Wilmersdorf\n"
-              "- Friedrichshain-Kreuzberg\n"
-              "- Lichtenberg\n"
-              "- Marzahn-Hellersdorf\n"
-              "- Mitte\n"
-              "- Neukölln\n"
-              "- Pankow\n"
-              "- Reinickendorf\n"
-              "- Spandau\n"
-              "- Steglitz-Zehlendorf\n"
-              "- Tempelhof-Schöneberg\n"
-              "- Treptow-Köpenik\n"
-              "- None")
-        self.preferred_district = input("Preferred district office:")
-        # todo try and except wrong input
+        # print("Choose preferred district office:\n"
+        #       "- Charlottenburg-Wilmersdorf\n"
+        #       "- Friedrichshain-Kreuzberg\n"
+        #       "- Lichtenberg\n"
+        #       "- Marzahn-Hellersdorf\n"
+        #       "- Mitte\n"
+        #       "- Neukölln\n"
+        #       "- Pankow\n"
+        #       "- Reinickendorf\n"
+        #       "- Spandau\n"
+        #       "- Steglitz-Zehlendorf\n"
+        #       "- Tempelhof-Schöneberg\n"
+        #       "- Treptow-Köpenik\n"
+        #       "- None")
+        # self.preferred_district = input("Preferred district office:")
+        # # todo try and except wrong input
 
         # picking certain days eventually too complicated because only date is in html not weekday
         # print("Choose preferred Weekday:\n"
@@ -85,13 +82,13 @@ class AppointmentWish:
         # self.preferred_weekday = input("Preferred weekday:")
         # # todo try and except wrong input
 
-        print("Choose preferred Daytime:\n"
-              "- Morning\n"
-              "- Afternoon\n"
-              "- None")
-
-        self.preferred_daytime = input("Preferred Daytime:")
-        # todo try and except wrong input
+        # print("Choose preferred Daytime:\n"
+        #       "- Morning\n"
+        #       "- Afternoon\n"
+        #       "- None")
+        #
+        # self.preferred_daytime = input("Preferred Daytime:")
+        # # todo try and except wrong input
 
 
 # if __name__ == "__main__":
