@@ -10,6 +10,10 @@ jobs:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
+    
+      - name: Clean the workspace
+        run: rm -rf $GITHUB_WORKSPACE/* 
+        
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
