@@ -69,6 +69,10 @@ termin_search1: bool = bot.find_appment(person_app, driver)
 if not termin_search1:
     bot.select_appment(driver)
     bot.fillform_and_book_appment(person, driver)
+    driver.quit()
+# else:
+    # todo: trigger scheduling for further searches and booking
+    # driver.quit()
 
 
 # todo: check if following functions are usefull
