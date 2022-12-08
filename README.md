@@ -89,7 +89,8 @@ I chose pybuilder, since pybuilder is a recommended built tool for python
 and can also be integrated into the github actions workflow.
 
 My build file can be found [here](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/build.py)
-and my [build directories]() will be added here soon.
+and my [automated builds](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/actions) can be accessed in the github actions
+panel by checking the recent build.yml files and following the pybuilder link.
 
 
 ### 7 - Unit-Tests
