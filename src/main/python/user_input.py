@@ -1,3 +1,6 @@
+from re import search
+
+
 class User:
     """
     Relevant information about the User
@@ -6,42 +9,44 @@ class User:
         last name (str)
         email (str)
     """
+
     # constructor:
     def __init__(self):
         print("please enter some information about yourself.")
-        self.first_name = input("first name:")
-        self.last_name = input("last name:")
-        self.email = input("email:")
+        while True:
+            try:
+                fname = input("first name:")
+                assert (fname.isalpha())
+                # assert(len(fname) > 1)
+                self.first_name = fname
 
-    # @classmethod
-    # def user_input(self):
-    #     # todo: validate input
-    #     while True:
-    #         first_name = input("First Name: ")
-    #         if first_name == bool(""):
-    #             print("Enter your Name please!")
-    #             continue
-    #         last_name = input("Last Name: ")
-    #         # todo: assert(...@...):
-    #         email = input("E-Mail: ")
-    #         try:
-    #             return self(first_name, last_name, email)
-    #         except:
-    #             print("Only Letters please!")
-    #             continue
+                lname = input("last name:")
+                assert (lname.isalpha())
+                # assert(len(fname) > 1)
+                self.last_name = lname
+                break
+            except AssertionError:
+                print("This is not a valid name. Try again!")
 
-    # @property
-    # ...eventually add getter and setter via property decorator
+        while True:
+            try:
+                email_inp = input("email:")
+                assert(search(r"\w+@+\w+\.(com|net|de|eu)", email_inp))
+                self.email = email_inp
+                break
+            except AssertionError:
+                print("This is not a valid email. Try again!")
 
 
 class AppointmentWish:
     """
     Relevant information about the appointment
      Attributes:
-        - Type of Appointment
-        - evtl. Preferred Borough
-        - evtl. Preferred Times
+        - Type of appointment
+        - evtl. Preferred district
+        - evtl. Preferred times
     """
+
     #  todo later evtl.
     #  -> improve day, time preferences
     def __init__(self):
@@ -91,6 +96,6 @@ class AppointmentWish:
         # # todo try and except wrong input
 
 
-# if __name__ == "__main__":
-    # a = User()
-    # b = AppointmentWish()
+if __name__ == "__main__":
+    a = User()
+    b = AppointmentWish()
