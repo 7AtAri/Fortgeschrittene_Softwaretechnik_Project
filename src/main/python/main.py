@@ -76,7 +76,7 @@ if not termin_search1:
 
 
 # todo: check if following functions are usefull
-def get_content(url1):
+def get_url_content(url1):
     page_html = requests.get(url1)
     # check if url could not be accessed:
     if check_page_status(url1):
@@ -103,3 +103,4 @@ def check_page_status(page_html) -> bool:
 #     # todo: create a list with all sections of class "buchbar":
 #     lists = soup.find_all("section")
 #     print(lists)
+#     https://www.crummy.com/software/BeautifulSoup/bs4/doc/  (beautiful soup documentation)
