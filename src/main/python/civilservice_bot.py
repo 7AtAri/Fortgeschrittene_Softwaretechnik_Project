@@ -10,6 +10,7 @@ from user_input import User, AppointmentWish
 # selenium docu:
 # selenium documentation:
 # https://selenium-python.readthedocs.io/index.html
+# https://www.scrapingbee.com/blog/selenium-python/
 
 # depending on version of selenium, geckodriver is not necessary to use firefox:
 # this is the path on my computer where I store the geckodriver for firefox
@@ -120,4 +121,3 @@ if __name__ == "__main__":
     termin_search1: bool = find_appment(person_app, driver)
     select_appment(driver)
     fillform_and_book_appment(person, driver)
-
