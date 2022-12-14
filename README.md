@@ -21,6 +21,7 @@ install the following libraries via pip:
 2) requests
 3) beautiful soup 
 4) bs4
+5) pybuilder
 
 or use the provided requirements text file:
 ```diff 
@@ -111,7 +112,7 @@ https://docs.github.com/de/actions/automating-builds-and-tests/building-and-test
 
 ### 9 - IDE
 I use PyCharm as IDE for the project. Since I do the project in Python,
-PyCharm is the most obvious choice. Since I have not worked with PyCharm before, I also think this is a good chance to get familiar with it a little.
+PyCharm is the most obvious choice. I have not worked with PyCharm before, but I think this is a good chance to get familiar with it a little.
 
 I had to personalize some shortcuts.
 My favorite Key-Shortcuts are: 
