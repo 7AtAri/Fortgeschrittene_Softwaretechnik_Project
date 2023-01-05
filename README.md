@@ -56,9 +56,9 @@ place it in /usr/bin or /usr/local/bin.
 - invent other domains around and document these domains 
 - (as if you have 100 Mio € from Edlich-Investment!) 
 - Develop a clear strategic design with mappings/relationships with >4 Domains 
-- coming from an Event Storming. 
-- Drop your Domains into a Core Domain Chart 
-- and indicate the Relations between the Domains!  
+- coming from an Event Storming.  -> check Miro
+- Drop your Domains into a Core Domain Chart -> verschachtelter Würfel: Check Miro
+- and indicate the Relations between the Domains!  -> Relations are defined: check miro
 ```
 
 ### 4 - Metrics
