@@ -65,15 +65,15 @@ task_done = False  # scheduler variable
 task_scheduler = sched.scheduler(time.time, time.sleep)  # scheduler object
 
 
-def schedule():
+def schedule(url2, personal_info, person_appointment_wish):
     global task_done  # task_done is used globally
-    driver = create_driver(url)  # creates a selenium browser object for the given url
-    bot.search_appment_type(person_app_wish, driver)  # bot searches appointment types with help of driver and appointment wish
-    bot.chose_appment_location(person_app_wish, driver)  # bot choses appointment based on wish
-    termin_search1: bool = bot.not_found_appment(person_app_wish, driver)  # did the bot not find an appointment?
+    driver = create_driver(url2)  # creates a selenium browser object for the given url
+    bot.search_appment_type(person_appointment_wish, driver)  # bot searches appointment types with help of driver and appointment wish
+    bot.chose_appment_location(person_appointment_wish, driver)  # bot choses appointment based on wish
+    termin_search1: bool = bot.not_found_appment(person_appointment_wish, driver)  # did the bot not find an appointment?
     if not termin_search1:  # bot found an appointment
         bot.select_appment(driver)  # bot selects an appoinment
-        bot.fillform_and_book_appment(person, driver)  # bot fills out forms with user information and books appoinment
+        bot.fillform_and_book_appment(personal_info, driver)  # bot fills out forms with user information and books appoinment
         driver.quit()  # selenium browser object is shut down
         task_done = True  # to stop the scheduler
     else:
@@ -98,8 +98,13 @@ def check_page_status(page_html) -> bool:
     else:
         return False
 
-# if __name__ == "__main__":
-#     # Ari = lib.User.user_input()
+
+if __name__ == "__main__":
+
+    schedule(url, person, person_app_wish)  # run the scheduled tasks
+
+
+#     Ari = lib.User.user_input()
 #     # print("Ari: ", Ari.first_name)
 #
 #     result = requests.get("https://service.berlin.de/terminvereinbarung/termin/day/")
