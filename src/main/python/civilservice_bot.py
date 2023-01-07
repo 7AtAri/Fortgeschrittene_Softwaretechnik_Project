@@ -46,7 +46,7 @@ def chose_appment_location(person_app1: AppointmentWish, driver1):
     elem_berlinweit.click()
 
 
-def find_appment(person_app1: AppointmentWish, driver1) -> bool:
+def not_found_appment(person_app1: AppointmentWish, driver1) -> bool:
     termin_search = True  # still looking for an appointment?
 
     while termin_search:
@@ -67,7 +67,8 @@ def find_appment(person_app1: AppointmentWish, driver1) -> bool:
                 # break  # if appointment date found leave
             except NoSuchElementException:
                 # todo: evtl. instead of console print add timestamp to no_dates_available_attempts.csv file
-                print("Leider aktuell kein buchbarer Termin vorhanden")
+                print("Leider aktuell kein buchbarer Termin vorhanden!"
+                      "Neue Suche in den kommenden 24 Stunden beauftragt.")
                 break
                 # termin_search = True  # not looking for appointment anymore, because no dates are available
     return termin_search
@@ -118,6 +119,6 @@ if __name__ == "__main__":
     driver.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
     search_appment_type(person_app, driver)
     chose_appment_location(person_app, driver)
-    termin_search1: bool = find_appment(person_app, driver)
+    termin_search1: bool = not_found_appment(person_app, driver)
     select_appment(driver)
     fillform_and_book_appment(person, driver)

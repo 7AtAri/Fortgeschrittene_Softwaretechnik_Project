@@ -31,7 +31,7 @@ class User:
         while True:
             try:
                 email_inp = input("email:")
-                assert(search(r"\w+@+\w+\.(com|net|de|eu)", email_inp))
+                assert (search(r"\w+@+\w+\.(com|net|de|eu)", email_inp))
                 self.email = email_inp
                 break
             except AssertionError:
@@ -47,17 +47,22 @@ class AppointmentWish:
         - evtl. Preferred times
     """
 
-    #  todo later evtl.
+    #  later evtl.
     #  -> improve day, time preferences
     def __init__(self):
         print("Choose type of Appointment:\n"
               "- Reisepass\n"
               "- Personalauseis\n"
               "- Wohnungsanmeldung\n")
-        #     "- Gewerbeanmeldung\n") # Gewerbeanmeldung appointments are not "berlinweit"
-        #     - focus on most common appointment wishes
-        self.appointment_type = input("Type of Appointment:")
-        # todo try and except wrong input
+        appointments = ["Reisepass", "Personalausweis", "Wohungsanmeldung"]
+        while True:
+            try:
+                appointment_type = input("Type of Appointment:")
+                assert ((appointment_type in appointments) is True)
+                self.appointment_type = appointment_type
+                break
+            except AssertionError:
+                print("This is not a valid appoinment type. Try again!")
 
         # print("Choose preferred district office:\n"
         #       "- Charlottenburg-Wilmersdorf\n"
@@ -74,7 +79,6 @@ class AppointmentWish:
         #       "- Treptow-Köpenik\n"
         #       "- None")
         # self.preferred_district = input("Preferred district office:")
-        # # todo try and except wrong input
 
         # picking certain days eventually too complicated because only date is in html not weekday
         # print("Choose preferred Weekday:\n"
@@ -85,7 +89,6 @@ class AppointmentWish:
         #       "- Friday\n"
         #       "- None")
         # self.preferred_weekday = input("Preferred weekday:")
-        # # todo try and except wrong input
 
         # print("Choose preferred Daytime:\n"
         #       "- Morning\n"
@@ -93,7 +96,6 @@ class AppointmentWish:
         #       "- None")
         #
         # self.preferred_daytime = input("Preferred Daytime:")
-        # # todo try and except wrong input
 
 
 if __name__ == "__main__":

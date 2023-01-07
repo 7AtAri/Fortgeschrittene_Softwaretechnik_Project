@@ -20,7 +20,9 @@
 """
 
 # Load needed libraries:
-
+import sched
+import time
+import random
 import requests
 # from bs4 import BeautifulSoup
 from user_input import User, AppointmentWish
@@ -29,18 +31,13 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import civilservice_bot as bot
 
-# import datetime #for scheduling
-
-
 # 1) User input and class User:
 # see user_input.py
 
-person_app = AppointmentWish()
+person_app_wish = AppointmentWish()
 person = User()
 
-# 2) Scheduler
-
-# 3) Web scraper and Automation
+# 2) Web scraper and Automation
 
 # Please make sure the driver is in your path
 # DRIVER_PATH = 'geckodriver'
@@ -62,17 +59,28 @@ def create_driver(url1):
     return driver1
 
 
-driver = create_driver(url)
-bot.search_appment_type(person_app, driver)
-bot.chose_appment_location(person_app, driver)
-termin_search1: bool = bot.find_appment(person_app, driver)
-if not termin_search1:
-    bot.select_appment(driver)
-    bot.fillform_and_book_appment(person, driver)
-    driver.quit()
-# else:
-    # todo: trigger scheduling for further searches and booking
-    # driver.quit()
+# 3) Scheduler
+
+task_done = False  # scheduler variable
+task_scheduler = sched.scheduler(time.time, time.sleep)  # scheduler object
+
+
+def schedule():
+    global task_done  # task_done is used globally
+    driver = create_driver(url)  # creates a selenium browser object for the given url
+    bot.search_appment_type(person_app_wish, driver)  # bot searches appointment types with help of driver and appointment wish
+    bot.chose_appment_location(person_app_wish, driver)  # bot choses appointment based on wish
+    termin_search1: bool = bot.not_found_appment(person_app_wish, driver)  # did the bot not find an appointment?
+    if not termin_search1:  # bot found an appointment
+        bot.select_appment(driver)  # bot selects an appoinment
+        bot.fillform_and_book_appment(person, driver)  # bot fills out forms with user information and books appoinment
+        driver.quit()  # selenium browser object is shut down
+        task_done = True  # to stop the scheduler
+    else:
+        #  if the bot did not find an appointment:
+        #  task is repeated randomly within in the next 24 Hours
+        task_scheduler.enter(random.randint(0, 86400), 1, schedule, ())
+        task_scheduler.run()
 
 
 # todo: check if following functions are usefull
@@ -89,7 +97,6 @@ def check_page_status(page_html) -> bool:
         return True
     else:
         return False
-
 
 # if __name__ == "__main__":
 #     # Ari = lib.User.user_input()
