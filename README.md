@@ -21,6 +21,7 @@ install the following libraries via pip:
 2) requests
 3) beautiful soup 
 4) bs4
+5) pybuilder
 
 or use the provided requirements text file:
 ```diff 
@@ -55,9 +56,9 @@ place it in /usr/bin or /usr/local/bin.
 - invent other domains around and document these domains 
 - (as if you have 100 Mio € from Edlich-Investment!) 
 - Develop a clear strategic design with mappings/relationships with >4 Domains 
-- coming from an Event Storming. 
-- Drop your Domains into a Core Domain Chart 
-- and indicate the Relations between the Domains!  
+- coming from an Event Storming.  -> check Miro
+- Drop your Domains into a Core Domain Chart -> verschachtelter Würfel: Check Miro
+- and indicate the Relations between the Domains!  -> Relations are defined: check miro
 ```
 
 ### 4 - Metrics
@@ -111,7 +112,7 @@ https://docs.github.com/de/actions/automating-builds-and-tests/building-and-test
 
 ### 9 - IDE
 I use PyCharm as IDE for the project. Since I do the project in Python,
-PyCharm is the most obvious choice. Since I have not worked with PyCharm before, I also think this is a good chance to get familiar with it a little.
+PyCharm is the most obvious choice. I have not worked with PyCharm before, but I think this is a good chance to get familiar with it a little.
 
 I had to personalize some shortcuts.
 My favorite Key-Shortcuts are: 
