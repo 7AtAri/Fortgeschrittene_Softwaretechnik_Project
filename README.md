@@ -49,6 +49,9 @@ place it in /usr/bin or /usr/local/bin.
 - You have 10 million $ from me! Please export the pics. 
 - I can not install all tools to view them!
 ```
+- Use Case Diagram
+- Activity Diagram
+- State Diagram?
 
 ### 3 - DDD 
 ```diff 
