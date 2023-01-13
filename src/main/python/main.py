@@ -6,12 +6,12 @@
 # 1) User Input
 # Name, type of appointment, email-address, optional: preferred day, optional: preferred time, optional: preferred area
 
-# 2) Scheduler?
-# -> choose time of execution
-
-# 3 ) Web Scraper
+# 2 ) Web Scraper
 # -> Area
 # -> available DATE, TIME
+
+# 3) Scheduler?
+# -> choose time of execution
 
 # 4) Bot
 # -> choose type of appointment

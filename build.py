@@ -24,6 +24,7 @@ default_task = "publish"
 def set_properties(project):
     project.set_property('pycharm_workspace_project_path', project_path)
     project.set_property("coverage_break_build", False)
+    project.build_depends_on_requirements("requirements.txt")
 
 
 # Most important part of the script below (previous one is just filling code)
