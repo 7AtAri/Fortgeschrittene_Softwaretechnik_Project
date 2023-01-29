@@ -43,27 +43,18 @@ place it in /usr/bin or /usr/local/bin.
 [go to: Commit History](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits)
 
 ### 2 - UML 
-```diff 
-- at least 3 good different diagrams. 
-- "good" means you can pump it up artificially as written in DDD. 
-- You have 10 million $ from me! Please export the pics. 
-- I can not install all tools to view them!
-```
+
 In my [UML Diagram folder](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/UML_Diagrams) you will find:
 - Use Case Diagram
 - Activity Diagram
-- State Diagram?
+- Class Diagram
 
 ### 3 - DDD 
 ```diff 
-- If your domain is too small, 
-- invent other domains around and document these domains 
-- (as if you have 100 Mio € from Edlich-Investment!) 
 - Develop a clear strategic design with mappings/relationships with >4 Domains 
-- coming from an Event Storming.  -> check Miro
-- Drop your Domains into a Core Domain Chart -> verschachtelter Würfel: Check Miro
 - and indicate the Relations between the Domains!  -> Relations are defined: check miro
 ```
+
 
 ### 4 - Metrics
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
