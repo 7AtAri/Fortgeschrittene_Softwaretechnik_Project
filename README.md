@@ -90,11 +90,8 @@ panel by checking the recent build.yml files and following the pybuilder link.
 
 
 ### 7 - Unit-Tests
-```diff 
-- TODO:
-- Integrate some nice Unit-Tests in your Code to be integrated into the Build
-- Integrate the tests into Github Actions
-```
+My [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/test_appointmentbot.py) are integrated as an action into the project's github workflow.
+This means, that like the build-process and metrics, these are executed at every push to the repository.
 
 ### 8 - Continuous Delivery:
 
