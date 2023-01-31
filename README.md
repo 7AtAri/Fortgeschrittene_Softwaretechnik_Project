@@ -54,7 +54,7 @@ In my [UML Diagram folder](https://github.com/7AtAri/Fortgeschrittene_Softwarete
 - Develop a clear strategic design with mappings/relationships with >4 Domains 
 - and indicate the Relations between the Domains!  -> Relations are defined: check miro
 ```
-You will find my DDD in the [DDD folder] (https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/event%20storming:DDD).
+You will find my DDD in the [DDD folder] (https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/event storming:DDD).
 
 ### 4 - Metrics
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
