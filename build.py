@@ -19,7 +19,6 @@ default_task = "publish"
 
 @init
 def set_properties(project):
-    project.depends_on('unittest') #?
     project.set_property('pycharm_workspace_project_path', project_path)
     project.set_property("coverage_break_build", False)
 
