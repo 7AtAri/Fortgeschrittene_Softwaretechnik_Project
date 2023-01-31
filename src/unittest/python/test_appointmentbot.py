@@ -48,14 +48,14 @@ class AppointmentBotTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.driver.quit()
 
-    def is_element_present(self, how, what):
+    def is_element_present(self, locator_type, locator_value):
         """
-        Helper method to confirm the presence of an element on page
-        -input: how (By locator type)
-                what (locator value)
+        Method to confirm the presence of an element on url-page
+        -input: locator_type (selenium element id type)
+                locator_value (specific element value to look for)
         """
         try:
-            self.driver.find_element(by=how, value=what)
+            self.driver.find_element(by=locator_type, value=locator_value)
         except NoSuchElementException:
             return False
         return True
