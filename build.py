@@ -14,9 +14,6 @@ use_plugin('pypi:pybuilder_pycharm_workspace')
 project_path = Path(__file__).resolve().parent
 
 name = project_path.name
-authors = [Author("foo", 'bar')]
-# license = "Apache License, Version 2.0"
-# version = '1.0.0'
 default_task = "publish"
 
 
@@ -27,7 +24,6 @@ def set_properties(project):
     project.build_depends_on_requirements("requirements.txt")
 
 
-# Most important part of the script below (previous one is just filling code)
 if __name__ == '__main__':
     import sys
 

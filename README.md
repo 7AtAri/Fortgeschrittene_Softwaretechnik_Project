@@ -54,7 +54,7 @@ In my [UML Diagram folder](https://github.com/7AtAri/Fortgeschrittene_Softwarete
 - Develop a clear strategic design with mappings/relationships with >4 Domains 
 - and indicate the Relations between the Domains!  -> Relations are defined: check miro
 ```
-You will find my DDD in the [DDD folder] (https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/event%20storming:DDD).
+I identified my project's domains with an event storming board and added a mapping with it's relations, as well as my Core Domain Chart in the [DDD folder](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/event%20storming:DDD).
 
 ### 4 - Metrics
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
@@ -90,11 +90,8 @@ panel by checking the recent build.yml files and following the pybuilder link.
 
 
 ### 7 - Unit-Tests
-```diff 
-- TODO:
-- Integrate some nice Unit-Tests in your Code to be integrated into the Build
-- Integrate the tests into Github Actions
-```
+My [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/test_appointmentbot.py) are integrated as an action into the project's github workflow.
+This means, that like the build-process and metrics, these are executed at every push to the repository.
 
 ### 8 - Continuous Delivery:
 

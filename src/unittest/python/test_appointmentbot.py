@@ -51,8 +51,8 @@ class AppointmentBotTest(unittest.TestCase):
     def is_element_present(self, how, what):
         """
         Helper method to confirm the presence of an element on page
-        :params how: By locator type
-        :params what: locator value
+        -input: how (By locator type)
+                what (locator value)
         """
         try:
             self.driver.find_element(by=how, value=what)
@@ -61,5 +61,5 @@ class AppointmentBotTest(unittest.TestCase):
         return True
 
 
-if __name__ == '__main__':
-    unittest.main()
+#if __name__ == '__main__':
+#    unittest.main()
