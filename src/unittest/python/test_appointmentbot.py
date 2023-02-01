@@ -5,13 +5,13 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 try:
-    from src.main.python.civilservice_bot import search_appment_type
+    import src.main.python.civilservice_bot
 
 except ModuleNotFoundError:
     from ...main.python.civilservice_bot import search_appment_type
 
 try:
-    from src.main.python.user_input import User, AppointmentWish
+    import src.main.python.user_input
 
 except ModuleNotFoundError:
     from ...main.python.user_input import User, AppointmentWish
@@ -22,8 +22,6 @@ except ModuleNotFoundError:
 #
 # except ModuleNotFoundError:
 #     from ...main.python.main import *
-
-
 
 
 class AppointmentBotTest(unittest.TestCase):
@@ -69,6 +67,5 @@ class AppointmentBotTest(unittest.TestCase):
             return False
         return True
 
-
-#if __name__ == '__main__':
+# if __name__ == '__main__':
 #    unittest.main()
