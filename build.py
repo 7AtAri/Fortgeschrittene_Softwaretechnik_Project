@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pybuilder.core import use_plugin, init, Author
+from pybuilder.core import use_plugin, init
 
 use_plugin('python.core')
 use_plugin('python.install_dependencies')

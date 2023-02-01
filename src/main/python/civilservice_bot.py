@@ -4,7 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
-from ...main.python.user_input import User, AppointmentWish
+
+try:
+    from user_input import User, AppointmentWish
+
+except ModuleNotFoundError:
+    from ...main.python.user_input import User, AppointmentWish
 
 
 # selenium docu:

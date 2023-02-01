@@ -18,7 +18,6 @@
 # -> inserting: email, name
 # -> Booking a fitting DATE, TIME
 """
-
 # Load needed libraries:
 import sched
 import time
