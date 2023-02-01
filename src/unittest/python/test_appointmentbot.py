@@ -10,6 +10,13 @@ try:
 except ModuleNotFoundError:
     from ...main.python.civilservice_bot import search_appment_type
 
+try:
+    import User, AppointmentWish
+
+except ModuleNotFoundError:
+    from ...main.python.user_input import User, AppointmentWish
+
+
 # try:
 #     import main
 #
