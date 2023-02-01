@@ -40,7 +40,9 @@ place it in /usr/bin or /usr/local/bin.
 ## (B) Project: Online Appointment/Reservation Bot
 
 ### 1 - Git
-[go to: Commit History](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits)
+As my git [commit history](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits) shows,
+I frequently added new code over the past months, while working on the project. As you can see, I also added a feature branch,
+that was merged back onto the main branch.
 
 ### 2 - UML 
 
