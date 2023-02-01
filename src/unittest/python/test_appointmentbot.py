@@ -5,13 +5,13 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 try:
-    from civilservice_bot import search_appment_type
+    from src.main.python.civilservice_bot import search_appment_type
 
 except ModuleNotFoundError:
     from ...main.python.civilservice_bot import search_appment_type
 
 try:
-    from user_input import User, AppointmentWish
+    from src.main.python.user_input import User, AppointmentWish
 
 except ModuleNotFoundError:
     from ...main.python.user_input import User, AppointmentWish
