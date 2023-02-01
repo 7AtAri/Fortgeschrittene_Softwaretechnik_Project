@@ -8,13 +8,13 @@ try:
     import civilservice_bot
 
 except ModuleNotFoundError:
-    from ...main.python import civilservice_bot
+    from ...main.python.civilservice_bot import *
 
 try:
     import main
 
 except ModuleNotFoundError:
-    from ...main.python import main
+    from ...main.python.main import *
 
 
 class AppointmentBotTest(unittest.TestCase):
