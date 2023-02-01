@@ -50,10 +50,7 @@ In my [UML Diagram folder](https://github.com/7AtAri/Fortgeschrittene_Softwarete
 - Class Diagram
 
 ### 3 - DDD 
-```diff 
-- Develop a clear strategic design with mappings/relationships with >4 Domains 
-- and indicate the Relations between the Domains!  -> Relations are defined: check miro
-```
+
 I identified my project's domains with an event storming board and added a mapping with its relations, as well as my Core Domain Chart in the [DDD folder](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/event%20storming:DDD).
 
 ### 4 - Metrics
