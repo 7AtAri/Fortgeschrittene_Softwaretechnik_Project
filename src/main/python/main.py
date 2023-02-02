@@ -51,30 +51,31 @@ options.headless = True  # headless mode means that the code executes in the bac
 url = "https://service.berlin.de/terminvereinbarung/"
 
 
-def create_driver(url1):
-    driver1 = webdriver.Firefox()
-    driver1.get(url1)
-    driver1.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
-    return driver1
+def create_browser_marionette(url1):
+    browser1 = webdriver.Firefox()
+    browser1.get(url1)
+    browser1.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
+    return browser1
 
 
 # 3) Scheduler
 
-task_done = False  # scheduler variable
-task_scheduler = sched.scheduler(time.time, time.sleep)  # scheduler object
+#task_done = False  # scheduler variable
+task_scheduler1 = sched.scheduler(time.time, time.sleep)  # scheduler object
 
 
-def schedule(url2, personal_info, person_appointment_wish):
-    global task_done  # task_done is used globally
-    driver = create_driver(url2)  # creates a selenium browser object for the given url
-    bot.search_appment_type(person_appointment_wish, driver)  # bot searches appointment types with help of driver and appointment wish
-    bot.chose_appment_location(person_appointment_wish, driver)  # bot choses appointment based on wish
-    termin_search1: bool = bot.not_found_appment(person_appointment_wish, driver)  # did the bot not find an appointment?
-    if not termin_search1:  # bot found an appointment
-        bot.select_appment(driver)  # bot selects an appoinment
-        bot.fillform_and_book_appment(personal_info, driver)  # bot fills out forms with user information and books appoinment
-        driver.quit()  # selenium browser object is shut down
-        task_done = True  # to stop the scheduler
+def schedule(url2, personal_info, person_appointment_wish, task_scheduler):
+    #global task_done  # task_done is used globally
+    browser = create_browser_marionette(url2)  # creates a selenium browser object for the given url
+    bot.search_appment_type(person_appointment_wish, browser)  # bot searches appointment types with help of browser and appointment wish
+    bot.chose_appment_location(person_appointment_wish, browser)  # bot choses appointment based on wish
+    termin_search_ongoing_1: bool = bot.still_looking_for_appointment(person_appointment_wish, browser)  # did the bot not find an appointment?
+    if not termin_search_ongoing_1:  # bot found an appointment
+        bot.select_appment(browser)
+        bot.fill_form_with_personal_info(personal_info, browser)
+        bot.book_appointment(browser)
+        browser.quit()  # selenium browser object is shut down
+        #task_done = True  # to stop the scheduler
     else:
         #  if the bot did not find an appointment:
         #  task is repeated randomly within in the next 24 Hours
@@ -99,8 +100,11 @@ def check_page_status(page_html) -> bool:
 
 
 if __name__ == "__main__":
-
-    schedule(url, person, person_app_wish)  # run the scheduled tasks
+    options = Options()
+    options.headless = True  # headless mode means that the code executes in the background
+    url = "https://service.berlin.de/terminvereinbarung/"
+    task_scheduler1 = sched.scheduler(time.time, time.sleep)  # scheduler object
+    schedule(url, person, person_app_wish, task_scheduler1)  # run the scheduled tasks
 
 
 #     Ari = lib.User.user_input()
