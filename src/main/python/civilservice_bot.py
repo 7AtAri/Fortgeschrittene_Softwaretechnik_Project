@@ -108,6 +108,7 @@ def book_appointment_1stpage(driver1, termin_search_ongoing1):
     termin_search_ongoing1 = False
     return termin_search_ongoing1
 
+
 def select_appment(driver1):
     elem_place_time = driver1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
     # todo: specify time (and place)

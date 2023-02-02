@@ -5,7 +5,7 @@ Since the project relies on user input,
 and the interaction of the bot with the website
 it can not be free of side effects.
 In fact it relies on side effects, because it 
-manipulates the 
+manipulates the browser object in each of the bots actions.
 
 But the goal is to move the side effects to the edges 
 of the project. The user input of necessary information 

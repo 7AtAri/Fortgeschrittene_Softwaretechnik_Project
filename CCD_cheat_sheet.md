@@ -17,3 +17,9 @@ instead of asking for its inner state and then act on it.
 
 ### 5) YAGNI
 Only implement what is really necessary. 
+
+### 6) No Magic Numbers!
+Do not put numbers in code, that the reader has to guess what they could mean.
+Use variables or even a function instead!
+
+(example changed in the project code: scheduler time interval)

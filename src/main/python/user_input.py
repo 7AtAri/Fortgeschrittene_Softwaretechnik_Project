@@ -57,12 +57,29 @@ class AppointmentWish:
         appointments = ["Reisepass", "Personalausweis", "Wohungsanmeldung"]
         while True:
             try:
-                appointment_type = input("Type of Appointment:")
+                appointment_type = input("Type of Appointment:\n")
                 assert ((appointment_type in appointments) is True)
                 self.appointment_type = appointment_type
                 break
             except AssertionError:
                 print("This is not a valid appoinment type. Try again!")
+
+        print("Please choose the preferred search interval,\n" 
+              "in case there is currently no appointment available.\n"
+              "Available options are between 1 and 72 (hours).\n")
+        seconds_per_hour = 360
+        hours_min = 1
+        hours_max = 72
+        list_available_hours = [x for x in range(hours_min, hours_max)]
+        while True:
+            try:
+                interval_hours = input("Interval:")
+                assert (interval_hours.isnumeric())
+                assert ((int(interval_hours) in list_available_hours) is True)
+                self.interval_in_seconds = int(interval_hours)*seconds_per_hour
+                break
+            except AssertionError:
+                print("This is not a valid interval. Try again!")
 
         # print("Choose preferred district office:\n"
         #       "- Charlottenburg-Wilmersdorf\n"
@@ -99,5 +116,5 @@ class AppointmentWish:
 
 
 if __name__ == "__main__":
-    a = User()
+    #a = User()
     b = AppointmentWish()
