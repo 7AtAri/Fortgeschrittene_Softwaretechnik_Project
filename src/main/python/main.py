@@ -79,7 +79,7 @@ def schedule(url2, personal_info, person_appointment_wish, task_scheduler):
     else:
         #  if the bot did not find an appointment:
         #  task is repeated randomly within in the next 24 Hours
-        task_scheduler.enter(random.randint(0, personal_info.interval_in_seconds), 1, schedule, ())
+        task_scheduler.enter(random.randint(0, person_appointment_wish.interval_in_seconds), 1, schedule, ())
         task_scheduler.run()
 
 
