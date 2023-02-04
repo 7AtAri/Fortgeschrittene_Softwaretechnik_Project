@@ -1,4 +1,5 @@
 from re import search
+from typing import Final
 
 
 class User:
@@ -65,24 +66,6 @@ class AppointmentWish:
             except AssertionError:
                 print("This is not a valid appoinment type. Try again!")
 
-        print("Please choose the preferred search interval,\n" 
-              "in case there is currently no appointment available.\n"
-              "Available options are between 1 and 72 (hours).")
-        seconds_per_hour = 360
-        hours_min = 1
-        hours_max = 72
-        list_available_hours = [x for x in range(hours_min, hours_max)]
-        while True:
-            try:
-                interval_hours = input("Interval:")
-                assert (interval_hours.isnumeric())
-                assert ((int(interval_hours) in list_available_hours) is True)
-                self.interval_in_seconds = int(interval_hours)*seconds_per_hour
-                print("\n")
-                break
-            except AssertionError:
-                print("This is not a valid interval. Try again!")
-
         # print("Choose preferred district office:\n"
         #       "- Charlottenburg-Wilmersdorf\n"
         #       "- Friedrichshain-Kreuzberg\n"
@@ -117,6 +100,36 @@ class AppointmentWish:
         # self.preferred_daytime = input("Preferred Daytime:")
 
 
+class AppointmentSearchInterval:
+    """
+    Relevant information about the search interval
+     Attributes:
+        - Type of appointment
+    """
+
+    def __init__(self):
+
+        seconds_per_hour: Final[int] = 360
+        min_interval_hours: Final[int] = 1
+        max_interval_hours: Final[int] = 72
+
+        print("Please choose the preferred search interval,\n"
+              "in case there is currently no appointment available.\n"
+              "Available options are between 1 and 72 (hours).")
+
+        list_available_hours = [x for x in range(min_interval_hours, max_interval_hours)]
+        while True:
+            try:
+                interval_hours = input("Interval:")
+                assert (interval_hours.isnumeric())
+                assert ((int(interval_hours) in list_available_hours) is True)
+                self.interval_in_seconds = int(interval_hours) * seconds_per_hour
+                print("\n")
+                break
+            except AssertionError:
+                print("This is not a valid interval. Try again!")
+
+
 if __name__ == "__main__":
-    #a = User()
+    # a = User()
     b = AppointmentWish()
