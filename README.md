@@ -70,12 +70,14 @@ I used Sonarcloud for metrics. This has the advantage, that the projects metrics
 # 
 
 ### 5 - Clean Code Development: 
-```diff 
-- A) at least 5 points you can show me with an explanation 
-- of why is this is clean code in your code and/or what has improved &  
 
-- B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
-```
+A) 5 Clean code examples in my code:
+    - [magic number problem resolved]()
+    - []
+explanation why is this is clean code in your code and/or what has improved 
+
+B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
+
 
 ### 6 - Build Management
 I chose pybuilder, since pybuilder is a recommended built tool for python
