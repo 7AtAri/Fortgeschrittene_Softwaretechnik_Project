@@ -151,11 +151,12 @@ def book_appointment(browser1):
 if __name__ == "__main__":
     person_app = AppointmentWish()
     person = User()
+    search_interval = AppointmentSearchInterval()
     driver = webdriver.Firefox()
     driver.get("https://service.berlin.de/terminvereinbarung/")
     driver.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
     search_appment_type(person_app, driver)
     choose_appment_location(driver)
-    termin_search1: bool = still_looking_for_appointment(driver)
+    termin_search1: bool = still_looking_for_appointment(driver, search_interval)
     select_appment(driver)
-    # fill_form_with_personal_info(person, driver)
+    fill_form_with_personal_info(person, driver)
