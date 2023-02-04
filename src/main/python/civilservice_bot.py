@@ -52,7 +52,7 @@ def search_appment_type(person_app1: AppointmentWish, browser1):
 
 def choose_appment_location(browser1):
     """
-    Chooses the first available appointment option
+    Chooses all available appointment locations in berlin
     :param browser1:
     :return: -
     """
@@ -61,6 +61,12 @@ def choose_appment_location(browser1):
 
 
 def still_looking_for_appointment(browser1) -> bool:
+    """
+    if appointment dates are not available return True,
+    if there is at lest one appointment date available return False.
+    :param browser1:
+    :return:
+    """
     termin_search_ongoing = True
 
     while termin_search_ongoing:
