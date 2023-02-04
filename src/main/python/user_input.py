@@ -102,9 +102,11 @@ class AppointmentWish:
 
 class AppointmentSearchInterval:
     """
-    Relevant information about the search interval
-     Attributes:
-        - Type of appointment
+    Relevant information about the search interval.
+    Choose within how many hours the bot should
+    randomly look again for available appointment options
+    Attributes:
+        - search interval
     """
 
     def __init__(self):
