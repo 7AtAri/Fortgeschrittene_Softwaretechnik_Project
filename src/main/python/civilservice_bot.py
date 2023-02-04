@@ -66,8 +66,6 @@ def still_looking_for_appointment(browser1) -> bool:
     while termin_search_ongoing:
         try:
             # booking appointment if there is one on the 1st calender page
-            # todo: select by class "buchbar" instead (that skips available dates for the current day - too soon?)
-            # eventually make a list of possible class buchbar elements and filter
             elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
             elem_buchen.click()
             termin_search_ongoing = False
@@ -79,7 +77,6 @@ def still_looking_for_appointment(browser1) -> bool:
                 elem_buchen.click()
                 termin_search_ongoing = False
             except NoSuchElementException:
-                # todo: evtl. additionally to console print add timestamp to no_dates_available_attempts.csv file
                 print("Leider aktuell kein buchbarer Termin vorhanden!"
                       "Neue Suche in den kommenden 24 Stunden beauftragt.")
                 break
