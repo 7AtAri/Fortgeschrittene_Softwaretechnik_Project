@@ -48,8 +48,7 @@ class AppointmentWish:
         - evtl. Preferred times
     """
 
-    #  later evtl.
-    #  -> improve day, time preferences
+    #  -> todo: improve day, time preferences
     def __init__(self):
         print("Choose type of Appointment:\n"
               "- Reisepass\n"
@@ -65,7 +64,41 @@ class AppointmentWish:
                 break
             except AssertionError:
                 print("This is not a valid appoinment type. Try again!")
+                
+        print("Choose preferred district office:\n"
+            "- Any\n"
+            "- Charlottenburg-Wilmersdorf\n"
+            "- Friedrichshain-Kreuzberg\n"
+            "- Lichtenberg\n"
+            "- Marzahn-Hellersdorf\n"
+            "- Mitte\n"
+            "- Neukölln\n"
+            "- Pankow\n"
+            "- Reinickendorf\n"
+            "- Spandau\n"
+            "- Steglitz-Zehlendorf\n"
+            "- Tempelhof-Schöneberg\n"
+            "- Treptow-Köpenik\n")
 
+        self.preferred_district = input("Preferred district office:")
+
+        # picking certain days eventually too complicated because only date is in html, not weekday
+        print("Choose preferred Weekday:\n"
+              "- Any\n")
+              "- Monday\n"
+              "- Tuesday\n"
+              "- Wednesday\n"
+              "- Thursday\n"
+              "- Friday")
+
+        self.preferred_weekday = input("Preferred weekday:")
+
+        print("Choose preferred Daytime:\n"
+            "- Morning\n"
+            "- Afternoon\n"
+            "- Any")
+     
+        self.preferred_daytime = input("Preferred Daytime:")
 
 class AppointmentSearchInterval:
     """
