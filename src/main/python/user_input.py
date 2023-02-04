@@ -92,7 +92,7 @@ class AppointmentSearchInterval:
                 interval_hours = input("Interval:")
                 assert (interval_hours.isnumeric())
                 assert ((int(interval_hours) in list_available_hours) is True)
-                self.search_interval_in_seconds = int(interval_hours) * seconds_per_hour
+                self.interval_in_seconds = int(interval_hours) * seconds_per_hour
                 print("\n")
                 break
             except AssertionError:

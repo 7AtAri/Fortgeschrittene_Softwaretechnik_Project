@@ -6,10 +6,10 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
 
 try:
-    from user_input import User, AppointmentWish
+    from user_input import User, AppointmentWish, AppointmentSearchInterval
 
 except ModuleNotFoundError:
-    from ...main.python.user_input import User, AppointmentWish
+    from ...main.python.user_input import User, AppointmentWish, AppointmentSearchInterval
 
 
 # selenium docu:
@@ -70,10 +70,11 @@ def turn_cal_page(browser1):
     elem_next.click()
 
 
-def still_looking_for_appointment(browser1) -> bool:
+def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchInterval) -> bool:
     """
     if appointment dates are not available return True,
     if there is at lest one appointment date available return False.
+    :param search_interval1:
     :param browser1:
     :return:
     """
@@ -91,7 +92,7 @@ def still_looking_for_appointment(browser1) -> bool:
                 termin_search_ongoing = False
             except NoSuchElementException:
                 print("Leider aktuell kein buchbarer Termin vorhanden!"
-                      "Neue Suche in den kommenden 24 Stunden beauftragt.")
+                      "Neue Suche in den kommenden" + str(search_interval1.interval_in_seconds) + " beauftragt.")
                 break
     return termin_search_ongoing
 
@@ -135,15 +136,15 @@ def fill_form_with_personal_info(person1: User, browser1):
     elem_nutzungsbedingungen.click()
 
 
-def book_appointment(driver1):
+def book_appointment(browser1):
     """
     submits the appointment registration form
     -> DO NOT CAll THIS FUNCTION if you do not really want to book an appointment!!!
 
-    :param driver1:
+    :param browser1:
     :return: -
     """
-    btn_termin_eintragen = driver1.find_element(By.ID, "register_submit")
+    btn_termin_eintragen = browser1.find_element(By.ID, "register_submit")
     btn_termin_eintragen.click()
 
 
