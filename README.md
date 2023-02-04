@@ -58,7 +58,7 @@ I identified my project's domains with an event storming board and added a mappi
 ### 4 - Metrics
 I used SonarCloud for metrics and integrated it in my GitHub actions workflow. 
 This has the advantage, that the metrics are automatically calculated on every push 
-and that the projects metrics are displayed with badges here:
+and that the project's metrics are displayed with badges here:
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
