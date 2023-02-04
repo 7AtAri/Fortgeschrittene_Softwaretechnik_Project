@@ -56,7 +56,9 @@ In my [UML Diagram folder](https://github.com/7AtAri/Fortgeschrittene_Softwarete
 I identified my project's domains with an event storming board and added a mapping with its relations, as well as my Core Domain Chart in the [DDD folder](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/event%20storming:DDD).
 
 ### 4 - Metrics
-I used Sonarcloud for metrics. This has the advantage, that the projects metrics can be displayed with batches:
+I used SonarCloud for metrics and integrated it in my GitHub actions workflow. 
+This has the advantage, that the metrics are automatically calculated on every push 
+and that the projects metrics are displayed with badges here:
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=7AtAri_Fortgeschrittene_Softwaretechnik_Project&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=7AtAri_Fortgeschrittene_Softwaretechnik_Project)
@@ -73,8 +75,10 @@ I used Sonarcloud for metrics. This has the advantage, that the projects metrics
 ### 5 - Clean Code Development: 
 
 A) 5 Clean code examples in my code:
-- [magic number replaced by a function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
+- Magic Number [replaced by a function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
+- YAGNI - [Move commented out code feature to feature branch](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/abd6c4d2023cb7f22c0f9ff6980eebc7e4ab1202#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233)
 - []
+
 explanation why is this is clean code in your code and/or what has improved 
 
 B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
