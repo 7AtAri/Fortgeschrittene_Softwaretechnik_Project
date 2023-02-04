@@ -66,39 +66,6 @@ class AppointmentWish:
             except AssertionError:
                 print("This is not a valid appoinment type. Try again!")
 
-        # print("Choose preferred district office:\n"
-        #       "- Charlottenburg-Wilmersdorf\n"
-        #       "- Friedrichshain-Kreuzberg\n"
-        #       "- Lichtenberg\n"
-        #       "- Marzahn-Hellersdorf\n"
-        #       "- Mitte\n"
-        #       "- Neukölln\n"
-        #       "- Pankow\n"
-        #       "- Reinickendorf\n"
-        #       "- Spandau\n"
-        #       "- Steglitz-Zehlendorf\n"
-        #       "- Tempelhof-Schöneberg\n"
-        #       "- Treptow-Köpenik\n"
-        #       "- None")
-        # self.preferred_district = input("Preferred district office:")
-
-        # picking certain days eventually too complicated because only date is in html not weekday
-        # print("Choose preferred Weekday:\n"
-        #       "- Monday\n"
-        #       "- Tuesday\n"
-        #       "- Wednesday\n"
-        #       "- Thursday\n"
-        #       "- Friday\n"
-        #       "- None")
-        # self.preferred_weekday = input("Preferred weekday:")
-
-        # print("Choose preferred Daytime:\n"
-        #       "- Morning\n"
-        #       "- Afternoon\n"
-        #       "- None")
-        #
-        # self.preferred_daytime = input("Preferred Daytime:")
-
 
 class AppointmentSearchInterval:
     """
