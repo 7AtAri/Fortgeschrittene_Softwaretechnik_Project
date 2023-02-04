@@ -74,7 +74,7 @@ I used Sonarcloud for metrics. This has the advantage, that the projects metrics
 - A) at least 5 points you can show me with an explanation 
 - of why is this is clean code in your code and/or what has improved &  
 
-- B) >>10 points on your personal CCD cheat sheet. E.g. a PDF.
+- B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
 ```
 
 ### 6 - Build Management
