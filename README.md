@@ -73,7 +73,7 @@ I used Sonarcloud for metrics. This has the advantage, that the projects metrics
 ### 5 - Clean Code Development: 
 
 A) 5 Clean code examples in my code:
-    - [magic number problem resolved]()
+    - [magic number replaced by a function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
     - []
 explanation why is this is clean code in your code and/or what has improved 
 
