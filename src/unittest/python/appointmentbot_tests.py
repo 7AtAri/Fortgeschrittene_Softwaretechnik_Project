@@ -34,10 +34,16 @@ class AppointmentBotTest(unittest.TestCase):
         # navigate to the civil service page
         self.driver.get('https://service.berlin.de/terminvereinbarung')
 
-    def test_search_appment_type(self):
-        # check if appointment types exist on page
+    def test_search_appment_type_personalausweis(self):
+        # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Personalausweis beantragen"))
+
+    def test_search_appment_type_reisepass(self):
+        # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Reisepass beantragen"))
+
+    def test_search_appment_type_anmeldung(self):
+        # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Anmelden einer Wohnung"))
 
     # def...():

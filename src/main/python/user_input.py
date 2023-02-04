@@ -44,8 +44,8 @@ class AppointmentWish:
     Relevant information about the appointment
      Attributes:
         - Type of appointment
-        - evtl. Preferred district
-        - evtl. Preferred times
+        - evtl. add Preferred district
+        - evtl. add Preferred times
     """
 
     #  later evtl.
