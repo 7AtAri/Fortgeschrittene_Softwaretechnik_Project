@@ -73,8 +73,10 @@ I used Sonarcloud for metrics. This has the advantage, that the projects metrics
 ### 5 - Clean Code Development: 
 
 A) 5 Clean code examples in my code:
-- [magic number replaced by a function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
+- Magic Number [replaced by a function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
+- YAGNI - [Move out commented code feature to feature branch](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/abd6c4d2023cb7f22c0f9ff6980eebc7e4ab1202#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233)
 - []
+
 explanation why is this is clean code in your code and/or what has improved 
 
 B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
