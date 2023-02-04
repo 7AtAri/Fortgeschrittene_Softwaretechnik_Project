@@ -65,21 +65,19 @@ task_scheduler1 = sched.scheduler(time.time, time.sleep)  # scheduler object
 
 
 def schedule(url2, personal_info, person_appointment_wish, task_scheduler):
-    #global task_done  # task_done is used globally
     browser = create_browser_marionette(url2)  # creates a selenium browser object for the given url
     bot.search_appment_type(person_appointment_wish, browser)  # bot searches appointment types with help of browser and appointment wish
-    bot.chose_appment_location(person_appointment_wish, browser)  # bot choses appointment based on wish
-    termin_search_ongoing_1: bool = bot.still_looking_for_appointment(person_appointment_wish, browser)  # did the bot not find an appointment?
+    bot.choose_appment_location(browser)  # bot choses appointment based on wish
+    termin_search_ongoing_1: bool = bot.still_looking_for_appointment(browser)  # did the bot not find an appointment?
     if not termin_search_ongoing_1:  # bot found an appointment
         bot.select_appment(browser)
         bot.fill_form_with_personal_info(personal_info, browser)
         bot.book_appointment(browser)
         browser.quit()  # selenium browser object is shut down
-        #task_done = True  # to stop the scheduler
     else:
         #  if the bot did not find an appointment:
         #  task is repeated randomly within in the next 24 Hours
-        task_scheduler.enter(random.randint(0, person_appointment_wish.interval_in_seconds), 1, schedule, ())
+        task_scheduler.enter(random.randint(0, person_appointment_wish.search_interval_in_seconds), 1, schedule, ())
         task_scheduler.run()
 
 

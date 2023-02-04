@@ -44,15 +44,15 @@ def search_appment_type(person_app1: AppointmentWish, browser1):
             print("Wrong input! Please enter the type of appointment correctly!")
 
 
-def chose_appment_location(person_app1: AppointmentWish, browser1):
+def choose_appment_location(browser1):
     # todo: evtl. here if else structure depending on appointment wish district
     # else: (if none or appointment is not available in preferred district)
     elem_berlinweit = browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
     elem_berlinweit.click()
 
 
-def still_looking_for_appointment(person_app1: AppointmentWish, browser1) -> bool:
-    termin_search_ongoing = True  # still looking for an appointment?
+def still_looking_for_appointment(browser1) -> bool:
+    termin_search_ongoing = True
 
     while termin_search_ongoing:
         try:
@@ -76,37 +76,37 @@ def still_looking_for_appointment(person_app1: AppointmentWish, browser1) -> boo
                 break
     return termin_search_ongoing
 
-
-def book_appointment_2ndpage(browser1, termin_search_ongoing1):
-    """
-    if no appointment on calendar page 1:
-    turn calender page and try next calender page
-
-    :param browser1:
-    :param termin_search_ongoing1:
-    :return: termin_search_ongoing1:
-    """
-    elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-    elem_next.click()
-    elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-    elem_buchen.click()
-    termin_search_ongoing1 = False
-    return termin_search_ongoing1
-
-
-def book_appointment_1stpage(driver1, termin_search_ongoing1):
-    """
-    booking appointment if there is one available on the first calender page
-    :param driver1:
-    :param termin_search_ongoing1:
-    :return: termin_search_ongoing1:
-    """
-    # todo: select by class "buchbar" instead (that skips available dates for the current day - too soon?)
-    # eventually make a list of possible class buchbar elements and filter
-    elem_buchen = driver1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-    elem_buchen.click()
-    termin_search_ongoing1 = False
-    return termin_search_ongoing1
+#
+# def book_appointment_2ndpage(browser1, termin_search_ongoing1):
+#     """
+#     if no appointment on calendar page 1:
+#     turn calender page and try next calender page
+#
+#     :param browser1:
+#     :param termin_search_ongoing1:
+#     :return: termin_search_ongoing1:
+#     """
+#     elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
+#     elem_next.click()
+#     elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
+#     elem_buchen.click()
+#     termin_search_ongoing1 = False
+#     return termin_search_ongoing1
+#
+#
+# def book_appointment_1stpage(driver1, termin_search_ongoing1):
+#     """
+#     booking appointment if there is one available on the first calender page
+#     :param driver1:
+#     :param termin_search_ongoing1:
+#     :return: termin_search_ongoing1:
+#     """
+#     # todo: select by class "buchbar" instead (that skips available dates for the current day - too soon?)
+#     # eventually make a list of possible class buchbar elements and filter
+#     elem_buchen = driver1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
+#     elem_buchen.click()
+#     termin_search_ongoing1 = False
+#     return termin_search_ongoing1
 
 
 def select_appment(driver1):
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     driver.get("https://service.berlin.de/terminvereinbarung/")
     driver.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
     search_appment_type(person_app, driver)
-    chose_appment_location(person_app, driver)
-    termin_search1: bool = still_looking_for_appointment(person_app, driver)
+    choose_appment_location(driver)
+    termin_search1: bool = still_looking_for_appointment(driver)
     select_appment(driver)
-    fill_form_with_personal_info(person, driver)
+    # fill_form_with_personal_info(person, driver)
