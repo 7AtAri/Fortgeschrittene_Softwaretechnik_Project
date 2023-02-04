@@ -27,6 +27,12 @@ except ModuleNotFoundError:
 
 
 def search_appment_type(person_app1: AppointmentWish, browser1):
+    """
+    Searches for the user's chosen appointment type and selects it
+    :param person_app1:
+    :param browser1:
+    :return:
+    """
     while True:
         if person_app1.appointment_type == "Personalausweis":
             elem_perso = browser1.find_element(By.LINK_TEXT, "Personalausweis beantragen")
@@ -45,8 +51,11 @@ def search_appment_type(person_app1: AppointmentWish, browser1):
 
 
 def choose_appment_location(browser1):
-    # todo: evtl. here if else structure depending on appointment wish district
-    # else: (if none or appointment is not available in preferred district)
+    """
+    Chooses the first available appointment option
+    :param browser1:
+    :return: -
+    """
     elem_berlinweit = browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
     elem_berlinweit.click()
 

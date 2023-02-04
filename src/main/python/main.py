@@ -22,10 +22,8 @@
 import sched
 import time
 import requests
-# from bs4 import BeautifulSoup
 from user_input import User, AppointmentWish
 from selenium import webdriver
-# from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 import civilservice_bot as bot
 import secrets
@@ -44,10 +42,8 @@ person = User()
 # all options for selenium with firefox:
 # https://www.selenium.dev/selenium/docs/api/py/webdriver_firefox/selenium.webdriver.firefox.options.html
 
-# todo: check why headless does not work yet
 options = Options()
 options.headless = True  # headless mode means that the code executes in the background
-
 url = "https://service.berlin.de/terminvereinbarung/"
 
 
@@ -102,17 +98,3 @@ if __name__ == "__main__":
     url = "https://service.berlin.de/terminvereinbarung/"
     task_scheduler1 = sched.scheduler(time.time, time.sleep)  # scheduler object
     schedule(url, person, person_app_wish, task_scheduler1)  # run the scheduled tasks
-
-
-#     Ari = lib.User.user_input()
-#     # print("Ari: ", Ari.first_name)
-#
-#     result = requests.get("https://service.berlin.de/terminvereinbarung/termin/day/")
-#     print(result.status_code)  # 200 OK response indicates that page is present
-#     print(result.headers)
-#     # create soup object from page content with bs4:
-#     soup = BeautifulSoup(result.content, 'html.parser')  # "html.parser" instead of lxml
-#     # todo: create a list with all sections of class "buchbar":
-#     lists = soup.find_all("section")
-#     print(lists)
-#     https://www.crummy.com/software/BeautifulSoup/bs4/doc/  (beautiful soup documentation)

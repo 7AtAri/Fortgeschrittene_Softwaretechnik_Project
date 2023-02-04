@@ -18,12 +18,12 @@ class User:
             try:
                 fname = input("first name:")
                 assert (fname.isalpha())
-                # assert(len(fname) > 1)
+                assert(len(fname) > 1)
                 self.first_name = fname
 
                 lname = input("last name:")
                 assert (lname.isalpha())
-                # assert(len(fname) > 1)
+                assert(len(lname) > 1)
                 self.last_name = lname
                 break
             except AssertionError:
@@ -100,5 +100,5 @@ class AppointmentSearchInterval:
 
 
 if __name__ == "__main__":
-    # a = User()
+    a = User()
     b = AppointmentWish()
