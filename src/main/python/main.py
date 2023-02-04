@@ -21,7 +21,6 @@
 # Load needed libraries:
 import sched
 import time
-import random
 import requests
 # from bs4 import BeautifulSoup
 from user_input import User, AppointmentWish
@@ -29,6 +28,7 @@ from selenium import webdriver
 # from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.firefox.options import Options
 import civilservice_bot as bot
+import secrets
 
 # 1) User input and class User:
 # see user_input.py
@@ -60,7 +60,6 @@ def create_browser_marionette(url1):
 
 # 3) Scheduler
 
-#task_done = False  # scheduler variable
 task_scheduler1 = sched.scheduler(time.time, time.sleep)  # scheduler object
 
 
@@ -77,7 +76,7 @@ def schedule(url2, personal_info, person_appointment_wish, task_scheduler):
     else:
         #  if the bot did not find an appointment:
         #  task is repeated randomly within in the next 24 Hours
-        task_scheduler.enter(random.randint(0, person_appointment_wish.search_interval_in_seconds), 1, schedule, ())
+        task_scheduler.enter(secrets.randbelow(person_appointment_wish.search_interval_in_seconds), 1, schedule, ())
         task_scheduler.run()
 
 
