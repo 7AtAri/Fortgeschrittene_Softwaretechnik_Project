@@ -60,6 +60,16 @@ def choose_appment_location(browser1):
     elem_berlinweit.click()
 
 
+def choose_app_date(browser1):
+    elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
+    elem_buchen.click()
+
+
+def turn_cal_page(browser1):
+    elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
+    elem_next.click()
+
+
 def still_looking_for_appointment(browser1) -> bool:
     """
     if appointment dates are not available return True,
@@ -72,53 +82,18 @@ def still_looking_for_appointment(browser1) -> bool:
     while termin_search_ongoing:
         try:
             # booking appointment if there is one on the 1st calender page
-            elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-            elem_buchen.click()
+            choose_app_date(browser1)
             termin_search_ongoing = False
         except NoSuchElementException:
             try:  # if no appointment on calendar page 1: try next calender page
-                elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-                elem_next.click()
-                elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-                elem_buchen.click()
+                turn_cal_page(browser1)
+                choose_app_date(browser1)
                 termin_search_ongoing = False
             except NoSuchElementException:
                 print("Leider aktuell kein buchbarer Termin vorhanden!"
                       "Neue Suche in den kommenden 24 Stunden beauftragt.")
                 break
     return termin_search_ongoing
-
-#
-# def book_appointment_2ndpage(browser1, termin_search_ongoing1):
-#     """
-#     if no appointment on calendar page 1:
-#     turn calender page and try next calender page
-#
-#     :param browser1:
-#     :param termin_search_ongoing1:
-#     :return: termin_search_ongoing1:
-#     """
-#     elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-#     elem_next.click()
-#     elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-#     elem_buchen.click()
-#     termin_search_ongoing1 = False
-#     return termin_search_ongoing1
-#
-#
-# def book_appointment_1stpage(driver1, termin_search_ongoing1):
-#     """
-#     booking appointment if there is one available on the first calender page
-#     :param driver1:
-#     :param termin_search_ongoing1:
-#     :return: termin_search_ongoing1:
-#     """
-#     # todo: select by class "buchbar" instead (that skips available dates for the current day - too soon?)
-#     # eventually make a list of possible class buchbar elements and filter
-#     elem_buchen = driver1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-#     elem_buchen.click()
-#     termin_search_ongoing1 = False
-#     return termin_search_ongoing1
 
 
 def select_appment(driver1):
