@@ -61,11 +61,21 @@ def choose_appment_location(browser1):
 
 
 def choose_app_date(browser1):
+    """
+    chooses the first available date for appointments
+    :param browser1:
+    :return:
+    """
     elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
     elem_buchen.click()
 
 
 def turn_cal_page(browser1):
+    """
+    turns the calender page of the civil service appointment calender
+    :param browser1:
+    :return:
+    """
     elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
     elem_next.click()
 
