@@ -96,8 +96,13 @@ def still_looking_for_appointment(browser1) -> bool:
     return termin_search_ongoing
 
 
-def select_appment(driver1):
-    elem_place_time = driver1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
+def select_appment(browser1):
+    """
+    selects the first available appointment
+    :param browser1:
+    :return:
+    """
+    elem_place_time = browser1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
     # todo: specify time (and place)
     if type(elem_place_time) == list:  # if more than one appointment
         for available_appointment in elem_place_time:
@@ -107,20 +112,26 @@ def select_appment(driver1):
         elem_place_time.click()
 
 
-def fill_form_with_personal_info(person1, driver1):
+def fill_form_with_personal_info(person1: User, browser1):
+    """
+    automatically fill personal information into booking form
+    :param person1:
+    :param browser1:
+    :return:
+    """
     # automatically input name:
-    elem_family_name = driver1.find_element(By.ID, "familyName")
+    elem_family_name = browser1.find_element(By.ID, "familyName")
     elem_family_name.send_keys(person1.first_name + " " + person1.last_name)
     # automatically input email address:
-    elem_email = driver1.find_element(By.ID, "email")
+    elem_email = browser1.find_element(By.ID, "email")
     elem_email.send_keys(person1.email)
     # automatically select from drop down menu:
     elem_select_eval = Select(
-        WebDriverWait(driver1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
+        WebDriverWait(browser1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
     elem_select_eval.select_by_value('0')
 
     # agb Checkbox:
-    elem_nutzungsbedingungen = driver1.find_element(By.ID, "agbgelesen")  # this is not a typo!
+    elem_nutzungsbedingungen = browser1.find_element(By.ID, "agbgelesen")  # this is not a typo!
     elem_nutzungsbedingungen.click()
 
 
