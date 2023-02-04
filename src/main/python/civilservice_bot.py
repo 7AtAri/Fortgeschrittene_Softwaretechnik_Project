@@ -29,9 +29,9 @@ except ModuleNotFoundError:
 def search_appment_type(person_app1: AppointmentWish, browser1):
     """
     Searches for the user's chosen appointment type and selects it
-    :param person_app1:
-    :param browser1:
-    :return:
+    :param person_app1: class that holds appointment wishes of the user
+    :param browser1: selenium browser object
+    :return: -
     """
     while True:
         if person_app1.appointment_type == "Personalausweis":
@@ -53,7 +53,7 @@ def search_appment_type(person_app1: AppointmentWish, browser1):
 def choose_appment_location(browser1):
     """
     Chooses all available appointment locations in berlin
-    :param browser1:
+    :param browser1: selenium browser object
     :return: -
     """
     elem_berlinweit = browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
@@ -63,8 +63,8 @@ def choose_appment_location(browser1):
 def choose_app_date(browser1):
     """
     chooses the first available date for appointments
-    :param browser1:
-    :return:
+    :param browser1: selenium browser object
+    :return: -
     """
     elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
     elem_buchen.click()
@@ -73,8 +73,8 @@ def choose_app_date(browser1):
 def turn_cal_page(browser1):
     """
     turns the calender page of the civil service appointment calender
-    :param browser1:
-    :return:
+    :param browser1: selenium browser object
+    :return: -
     """
     elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
     elem_next.click()
@@ -84,9 +84,9 @@ def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchI
     """
     if appointment dates are not available return True,
     if there is at lest one appointment date available return False.
-    :param search_interval1:
-    :param browser1:
-    :return:
+    :param search_interval1: the user's specified search interval for the bot
+    :param browser1: selenium browser object
+    :return: -
     """
     termin_search_ongoing = True
 
@@ -110,8 +110,8 @@ def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchI
 def select_appment(browser1):
     """
     selects the first available appointment
-    :param browser1:
-    :return:
+    :param browser1: selenium browser object
+    :return: -
     """
     elem_place_time = browser1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
     # todo: specify time (and place)
@@ -126,8 +126,8 @@ def select_appment(browser1):
 def fill_form_with_personal_info(person1: User, browser1):
     """
     automatically fill personal information into booking form
-    :param person1:
-    :param browser1:
+    :param person1: class that holds the user's personal information
+    :param browser1: selenium browser object
     :return:
     """
     # automatically input name:
@@ -151,7 +151,7 @@ def book_appointment(browser1):
     submits the appointment registration form
     -> DO NOT CAll THIS FUNCTION if you do not really want to book an appointment!!!
 
-    :param browser1:
+    :param browser1: selenium browser object
     :return: -
     """
     btn_termin_eintragen = browser1.find_element(By.ID, "register_submit")
