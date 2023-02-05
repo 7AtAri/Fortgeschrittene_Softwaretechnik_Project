@@ -26,7 +26,10 @@ except ModuleNotFoundError:
 # css selectors:
 # https://www.w3schools.com/cssref/css_selectors.php
 
-# def find_element():
+
+def find_element_by(browser1, sometext, bytype):
+    browser1.find_element(bytype, sometext).click()
+
 
 def search_appment_type(person_app1: AppointmentWish, browser1):
     """
@@ -35,21 +38,7 @@ def search_appment_type(person_app1: AppointmentWish, browser1):
     :param browser1: selenium browser object
     :return: -
     """
-    while True:
-        if person_app1.appointment_type == "Personalausweis":
-            elem_perso = browser1.find_element(By.LINK_TEXT, "Personalausweis beantragen")
-            elem_perso.click()
-            break
-        elif person_app1.appointment_type == "Reisepass":
-            elem_pass = browser1.find_element(By.LINK_TEXT, "Reisepass beantragen")
-            elem_pass.click()
-            break
-        elif person_app1.appointment_type == "Wohnungsanmeldung":
-            elem_wohnung = browser1.find_element(By.LINK_TEXT, "Anmelden einer Wohnung")
-            elem_wohnung.click()
-            break
-        else:
-            print("Wrong input! Please enter the type of appointment correctly!")
+    browser1.find_element(By.LINK_TEXT, person_app1.appointment_type).click()
 
 
 def choose_appment_location(browser1):

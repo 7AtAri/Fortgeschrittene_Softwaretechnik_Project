@@ -53,10 +53,10 @@ class AppointmentWish:
     #  -> improve day, time preferences
     def __init__(self):
         print("Choose type of Appointment:\n"
-              "- Reisepass\n"
-              "- Personalauseis\n"
-              "- Wohnungsanmeldung\n")
-        appointments = ["Reisepass", "Personalausweis", "Wohungsanmeldung"]
+              "- Reisepass beantragen\n"
+              "- Personalausweis beantragen\n"
+              "- Anmeldung einer Wohnung\n")
+        appointments = ["Reisepass beantragen", "Personalausweis beantragen", "Anmeldung einer Wohnung"]
         while True:
             try:
                 appointment_type = input("Type of Appointment:")
@@ -65,7 +65,7 @@ class AppointmentWish:
                 print("\n")
                 break
             except AssertionError:
-                print("This is not a valid appoinment type. Try again!")
+                print("This is not a valid appointment type. Try again!")
 
 
 class AppointmentSearchInterval:
