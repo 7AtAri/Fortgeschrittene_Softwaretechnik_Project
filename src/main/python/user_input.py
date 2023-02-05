@@ -55,8 +55,8 @@ class AppointmentWish:
         print("Choose type of Appointment:\n"
               "- Reisepass beantragen\n"
               "- Personalausweis beantragen\n"
-              "- Anmeldung einer Wohnung\n")
-        appointments = ["Reisepass beantragen", "Personalausweis beantragen", "Anmeldung einer Wohnung"]
+              "- Anmelden einer Wohnung\n")
+        appointments = ["Reisepass beantragen", "Personalausweis beantragen", "Anmelden einer Wohnung"]
         while True:
             try:
                 appointment_type = input("Type of Appointment:")
@@ -79,7 +79,7 @@ class AppointmentSearchInterval:
 
     def __init__(self):
 
-        seconds_per_hour: Final[int] = 360
+        seconds_per_hour: Final[int] = 3600
         min_interval_hours: Final[int] = 1
         max_interval_hours: Final[int] = 72
 
@@ -103,5 +103,7 @@ class AppointmentSearchInterval:
 
 
 if __name__ == "__main__":
-    a = User()
-    b = AppointmentWish()
+    # a = User()
+    # b = AppointmentWish()
+    c = AppointmentSearchInterval()
+    print(c.interval_in_seconds)

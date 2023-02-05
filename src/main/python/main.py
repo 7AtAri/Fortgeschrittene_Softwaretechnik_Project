@@ -58,9 +58,11 @@ def schedule(url2, personal_info, person_appointment_wish, task_scheduler, bot_s
     :return:
     """
     browser = create_browser_marionette(url2)  # creates a selenium browser object for the given url
-    bot.search_appment_type(person_appointment_wish, browser)  # bot searches appointment types with help of browser and appointment wish
+    bot.search_appment_type(person_appointment_wish,
+                            browser)  # bot searches appointment types with help of browser and appointment wish
     bot.choose_appment_location(browser)  # bot choses appointment based on wish
-    termin_search_ongoing_1: bool = bot.still_looking_for_appointment(browser, bot_search_interval1)  # did the bot not find an appointment?
+    termin_search_ongoing_1: bool = bot.still_looking_for_appointment(browser,
+                                                                      bot_search_interval1)  # did the bot not find an appointment?
     if not termin_search_ongoing_1:  # bot found an appointment
         bot.select_appment(browser)
         bot.fill_form_with_personal_info(personal_info, browser)
@@ -69,7 +71,10 @@ def schedule(url2, personal_info, person_appointment_wish, task_scheduler, bot_s
     else:
         #  if the bot did not find an appointment:
         #  task is repeated randomly within in the next 24 Hours
-        task_scheduler.enter(secrets.randbelow(bot_search_interval1.interval_in_seconds), 1, schedule, ())
+        task_scheduler.enter(secrets.randbelow(bot_search_interval1.interval_in_seconds),
+                             1,
+                             schedule,
+                             (url2, personal_info, person_appointment_wish, task_scheduler, bot_search_interval1))
         task_scheduler.run()
 
 
