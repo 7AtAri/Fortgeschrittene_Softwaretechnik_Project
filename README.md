@@ -81,8 +81,6 @@ A) Clean code examples in my code:
 - Followed [naming conventions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) in function names for Python code (Pep8)
 - Only [one assert per test](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/3194efe07d6b149e74f2e7e78ca3272a78170d68/src/unittest/python/appointmentbot_tests.py#L37) instead of [many](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/3194efe07d6b149e74f2e7e78ca3272a78170d68#diff-68c225ad9dab2010fd3e4995cab1e867b7c183925c001d7361ec2548cb697621).
 
-explanation why is this is clean code in your code and/or what has improved 
-
 B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
 
 
