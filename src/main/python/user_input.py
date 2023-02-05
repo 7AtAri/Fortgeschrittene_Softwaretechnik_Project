@@ -13,7 +13,7 @@ class User:
 
     # constructor:
     def __init__(self):
-        print("please enter some information about yourself.")
+        print("Please enter some information about yourself.")
         while True:
             try:
                 fname = input("first name:")
@@ -82,14 +82,16 @@ class AppointmentSearchInterval:
         min_interval_hours: Final[int] = 1
         max_interval_hours: Final[int] = 72
 
+        list_available_hours = [x for x in range(min_interval_hours, max_interval_hours)]
+
         print("Please choose the preferred search interval,\n"
               "in case there is currently no appointment available.\n"
               "Available options are between 1 and 72 (hours).")
 
-        list_available_hours = [x for x in range(min_interval_hours, max_interval_hours)]
         while True:
             try:
                 interval_hours = input("Interval:")
+                self.interval_hours = interval_hours
                 assert (interval_hours.isnumeric())
                 assert ((int(interval_hours) in list_available_hours) is True)
                 self.interval_in_seconds = int(interval_hours) * seconds_per_hour

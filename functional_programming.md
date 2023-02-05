@@ -30,8 +30,10 @@ project structure.
    -> import pickle
    https://docs.python.org/3/library/pickle.html#comparison-with-marshal
 
-### 4) Passing and returning functions like variables
+### 4) User Higher Order Functions -> in python: decorators
+Passing and returning functions like variables
    https://www.youtube.com/watch?v=n_Y-_7R2KsY
+   https://realpython.com/primer-on-python-decorators/
 
 ### 5) using the @staticmethod decorator
 With the help of static methods we can use a function by calling it through the
@@ -40,5 +42,4 @@ This way we can have classes, that mix functional and OOP.
 The staticmethod has one single use and can therefor not be overwritten by
 a subclass. 
 
-Up until now, the project does not use inheritance or polymorphism.
 

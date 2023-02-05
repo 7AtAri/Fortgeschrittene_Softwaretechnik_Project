@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
+import requests
 
 try:
     from user_input import User, AppointmentWish, AppointmentSearchInterval
@@ -56,8 +57,7 @@ def choose_appment_location(browser1):
     :param browser1: selenium browser object
     :return: -
     """
-    elem_berlinweit = browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
-    elem_berlinweit.click()
+    browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen").click()
 
 
 def choose_app_date(browser1):
@@ -88,23 +88,22 @@ def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchI
     :param browser1: selenium browser object
     :return: -
     """
-    termin_search_ongoing = True
 
-    while termin_search_ongoing:
+    while True:
         try:
             # booking appointment if there is one on the 1st calender page
             choose_app_date(browser1)
-            termin_search_ongoing = False
+            return False
         except NoSuchElementException:
             try:  # if no appointment on calendar page 1: try next calender page
                 turn_cal_page(browser1)
                 choose_app_date(browser1)
-                termin_search_ongoing = False
+                return False
             except NoSuchElementException:
                 print("Leider aktuell kein buchbarer Termin vorhanden!"
-                      "Neue Suche in den kommenden" + str(search_interval1.interval_in_seconds) + " beauftragt.")
+                      "Neue Suche innerhalb " + str(search_interval1.interval_hours) + " Stunde(n) beauftragt.")
                 break
-    return termin_search_ongoing
+    return True
 
 
 def select_appment(browser1):
@@ -114,7 +113,6 @@ def select_appment(browser1):
     :return: -
     """
     elem_place_time = browser1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
-    # todo: specify time (and place)
     if type(elem_place_time) == list:  # if more than one appointment
         for available_appointment in elem_place_time:
             available_appointment.click()  # click on first appointment
@@ -156,6 +154,31 @@ def book_appointment(browser1):
     """
     btn_termin_eintragen = browser1.find_element(By.ID, "register_submit")
     btn_termin_eintragen.click()
+
+
+def is_page_status_ok(page_html) -> bool:
+    """
+    checks if the website's information is accessible
+    :param page_html: the website's html code
+    :return: boolean depending on the status code
+    """
+    if page_html.status_code != 200:
+        print("URL Page Information not accessible")
+        return True
+    else:
+        return False
+
+
+def get_url_content(url1):
+    """
+    returns html of a website if page status is OK
+    :param url1: any given url
+    :return: html code of the url
+    """
+    page_html = requests.get(url1)
+    # check if url could not be accessed:
+    if is_page_status_ok(url1):
+        return page_html
 
 
 if __name__ == "__main__":
