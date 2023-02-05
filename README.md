@@ -126,6 +126,9 @@ My favorite Key-Shortcuts are:
 ```
 
 ### 11 - Functional Programming:
+
+- I used Python's typing package to indicate [Final datastructures](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/7ff084d3a5aa0b905c6f557b05f563dfabd8672b#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233). Type checkers in my IDE check, that my variables are not overwritten or reassigned.
+
 ```diff 
 - TODO:
 - prove that you have covered all functional aspects in your code as:
