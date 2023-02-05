@@ -26,6 +26,7 @@ except ModuleNotFoundError:
 # css selectors:
 # https://www.w3schools.com/cssref/css_selectors.php
 
+# def find_element():
 
 def search_appment_type(person_app1: AppointmentWish, browser1):
     """
@@ -100,8 +101,8 @@ def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchI
                 choose_app_date(browser1)
                 return False
             except NoSuchElementException:
-                print("Leider aktuell kein buchbarer Termin vorhanden!"
-                      "Neue Suche innerhalb " + str(search_interval1.interval_hours) + " Stunde(n) beauftragt.")
+                print("Leider aktuell kein buchbarer Termin vorhanden!\n"
+                      "Neue Suche innerhalb " + str(search_interval1.interval_hours) + " Stunde(n) beauftragt.\n")
                 break
     return True
 
