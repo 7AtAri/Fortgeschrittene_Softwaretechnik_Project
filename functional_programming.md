@@ -29,7 +29,8 @@ project structure.
 ###   b) Use persistent data structures
    -> import pickle
    https://docs.python.org/3/library/pickle.html#comparison-with-marshal
-
+   -> Pyrsistent
+   https://pypi.org/project/pyrsistent/
 ### 4) User Higher Order Functions -> in python: decorators
 Passing and returning functions like variables
    https://www.youtube.com/watch?v=n_Y-_7R2KsY

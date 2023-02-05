@@ -1,5 +1,6 @@
 from re import search
 from typing import Final
+from pyrsistent import pvector
 
 
 class User:
@@ -82,7 +83,7 @@ class AppointmentSearchInterval:
         min_interval_hours: Final[int] = 1
         max_interval_hours: Final[int] = 72
 
-        list_available_hours = [x for x in range(min_interval_hours, max_interval_hours)]
+        list_available_hours = pvector([x for x in range(min_interval_hours, max_interval_hours)])
 
         print("Please choose the preferred search interval,\n"
               "in case there is currently no appointment available.\n"
