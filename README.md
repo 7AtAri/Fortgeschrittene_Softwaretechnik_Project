@@ -41,8 +41,8 @@ place it in /usr/bin or /usr/local/bin.
 
 ### 1 - Git
 As my git [commit history](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits) shows,
-I frequently added new code over the past months, while working on the project. As you can see, I also added a feature branch,
-that was merged back onto the main branch.
+I frequently added new code over the past months, while working on the project. As you can see, I also added a feature branch for refactoring, 
+that was merged back onto the main branch. I also opened a feature branch for a more detailled appointment wish for further development in the future.
 
 ### 2 - UML 
 
