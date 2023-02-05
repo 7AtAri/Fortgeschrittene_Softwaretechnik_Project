@@ -41,8 +41,8 @@ place it in /usr/bin or /usr/local/bin.
 
 ### 1 - Git
 As my git [commit history](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commits) shows,
-I frequently added new code over the past months, while working on the project. As you can see, I also added a feature branch,
-that was merged back onto the main branch.
+I frequently added new code over the past months, while working on the project. As you can see, I also added a feature branch for refactoring, 
+that was merged back onto the main branch. I also opened a feature branch for a more detailled appointment wish for further development in the future.
 
 ### 2 - UML 
 
@@ -75,13 +75,11 @@ and that the projects metrics are displayed with badges here:
 ### 5 - Clean Code Development: 
 
 A) Clean code examples in my code:
-- Magic Number [replaced by a function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
-- Delect [commented out](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/abd6c4d2023cb7f22c0f9ff6980eebc7e4ab1202#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233) feature code and keep it in feature branch only
-- [Function refactoring](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) so that each function only does one thing
-- [Followed naming conventions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) in function names for Python code (Pep8)
-- []()
-
-explanation why is this is clean code in your code and/or what has improved 
+- Replace Magic Number by a [function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/78fa9ea433ef4b0d0d6018476a5b46a57d7e61fd/src/main/python/main.py#L82)
+- Delete [commented out](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/abd6c4d2023cb7f22c0f9ff6980eebc7e4ab1202#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233) feature code and keep it in feature branch only
+- [Function refactoring](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) so that each function only does one thing.
+- Followed [naming conventions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) in function names for Python code (Pep8)
+- Only [one assert per test](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/3194efe07d6b149e74f2e7e78ca3272a78170d68/src/unittest/python/appointmentbot_tests.py#L37) instead of [many](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/3194efe07d6b149e74f2e7e78ca3272a78170d68#diff-68c225ad9dab2010fd3e4995cab1e867b7c183925c001d7361ec2548cb697621).
 
 B) My [CCD cheat sheet](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/CCD_cheat_sheet.pdf).
 
@@ -128,6 +126,9 @@ My favorite Key-Shortcuts are:
 ```
 
 ### 11 - Functional Programming:
+
+- I used Python's typing package to indicate [Final datastructures](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/7ff084d3a5aa0b905c6f557b05f563dfabd8672b#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233). Type checkers in my IDE check, that my variables are not overwritten or reassigned.
+
 ```diff 
 - TODO:
 - prove that you have covered all functional aspects in your code as:
