@@ -118,6 +118,9 @@ My favorite Key-Shortcuts are:
 - multiline (out)comment (Command -) 
 
 ### 10 - DSL
+
+In my code I used Domain Specific Languages like [Regex](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/b70d9798e5442b6cdc6f25cb50c4bbcd42521b24/src/main/python/user_input.py#L36) and [HTML](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/b70d9798e5442b6cdc6f25cb50c4bbcd42521b24/src/main/python/civilservice_bot.py#L162). 
+
 ```diff 
 - TODO:
 - Create a small DSL Demo example snippet in your code 
@@ -127,7 +130,14 @@ My favorite Key-Shortcuts are:
 
 ### 11 - Functional Programming:
 
-- I used Python's typing package to indicate [Final datastructures](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/7ff084d3a5aa0b905c6f557b05f563dfabd8672b#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233). Type checkers in my IDE check, that my variables are not overwritten or reassigned.
+- No variables were reassigned. Additionally I used Python's typing package to indicate [Final datastructures](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/7ff084d3a5aa0b905c6f557b05f563dfabd8672b#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233). Type checkers in my IDE check, that my variables are not overwritten or reassigned. For methods and classes in Python a similar effect is achieved using the @final decorator from the same package.
+- I used the [package pyresistent](https://pypi.org/project/pyrsistent/) to [convert my list into a final datastructure](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/722c25bb40abc4f79f3337deb05c1b847d682611#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233).
+- Since the project relies on user input and the interaction of the bot with the website, it can not be free of side effects. In fact it relies on side effects, because it manipulates the browser object in each of the bots actions. 
+- When possible I used list [comprehensions instead of loops](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/722c25bb40abc4f79f3337deb05c1b847d682611/src/main/python/user_input.py#L86).
+- As decorators are the main way to use higher-order functions in Python, I tried to use them as often as possible.
+[]()
+
+
 
 ```diff 
 - TODO:
