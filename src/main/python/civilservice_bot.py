@@ -26,92 +26,83 @@ except ModuleNotFoundError:
 # https://www.w3schools.com/cssref/css_selectors.php
 
 
+
+def find_element_by(browser1, sometext, bytype):
+    browser1.find_element(bytype, sometext).click()
+
+
 def search_appment_type(person_app1: AppointmentWish, browser1):
-    while True:
-        if person_app1.appointment_type == "Personalausweis":
-            elem_perso = browser1.find_element(By.LINK_TEXT, "Personalausweis beantragen")
-            elem_perso.click()
-            break
-        elif person_app1.appointment_type == "Reisepass":
-            elem_pass = browser1.find_element(By.LINK_TEXT, "Reisepass beantragen")
-            elem_pass.click()
-            break
-        elif person_app1.appointment_type == "Wohnungsanmeldung":
-            elem_wohnung = browser1.find_element(By.LINK_TEXT, "Anmelden einer Wohnung")
-            elem_wohnung.click()
-            break
-        else:
-            print("Wrong input! Please enter the type of appointment correctly!")
+    """
+    Searches for the user's chosen appointment type and selects it
+    :param person_app1: class that holds appointment wishes of the user
+    :param browser1: selenium browser object
+    :return: -
+    """
+    browser1.find_element(By.LINK_TEXT, person_app1.appointment_type).click()
 
 
 def choose_appment_location(browser1):
-    # todo: evtl. here if else structure depending on appointment wish district
-    # else: (if none or appointment is not available in preferred district)
-    elem_berlinweit = browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen")
-    elem_berlinweit.click()
+    """
+    Chooses all available appointment locations in berlin
+    :param browser1: selenium browser object
+    :return: -
+    """
+    browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen").click()
 
 
-def still_looking_for_appointment(browser1) -> bool:
-    termin_search_ongoing = True
+def choose_app_date(browser1):
+    """
+    chooses the first available date for appointments
+    :param browser1: selenium browser object
+    :return: -
+    """
+    elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
+    elem_buchen.click()
 
-    while termin_search_ongoing:
+
+def turn_cal_page(browser1):
+    """
+    turns the calender page of the civil service appointment calender
+    :param browser1: selenium browser object
+    :return: -
+    """
+    elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
+    elem_next.click()
+
+
+def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchInterval) -> bool:
+    """
+    if appointment dates are not available return True,
+    if there is at lest one appointment date available return False.
+    :param search_interval1: the user's specified search interval for the bot
+    :param browser1: selenium browser object
+    :return: -
+    """
+
+    while True:
         try:
             # booking appointment if there is one on the 1st calender page
-            # todo: select by class "buchbar" instead (that skips available dates for the current day - too soon?)
-            # eventually make a list of possible class buchbar elements and filter
-            elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-            elem_buchen.click()
-            termin_search_ongoing = False
+            choose_app_date(browser1)
+            return False
         except NoSuchElementException:
             try:  # if no appointment on calendar page 1: try next calender page
-                elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-                elem_next.click()
-                elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-                elem_buchen.click()
-                termin_search_ongoing = False
+                turn_cal_page(browser1)
+                choose_app_date(browser1)
+                return False
             except NoSuchElementException:
-                # todo: evtl. additionally to console print add timestamp to no_dates_available_attempts.csv file
-                print("Leider aktuell kein buchbarer Termin vorhanden!"
-                      "Neue Suche in den kommenden 24 Stunden beauftragt.")
+                print("Leider aktuell kein buchbarer Termin vorhanden!\n"
+                      "Neue Suche innerhalb " + str(search_interval1.interval_hours) + " Stunde(n) beauftragt.\n")
                 break
-    return termin_search_ongoing
-
-#
-# def book_appointment_2ndpage(browser1, termin_search_ongoing1):
-#     """
-#     if no appointment on calendar page 1:
-#     turn calender page and try next calender page
-#
-#     :param browser1:
-#     :param termin_search_ongoing1:
-#     :return: termin_search_ongoing1:
-#     """
-#     elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-#     elem_next.click()
-#     elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-#     elem_buchen.click()
-#     termin_search_ongoing1 = False
-#     return termin_search_ongoing1
-#
-#
-# def book_appointment_1stpage(driver1, termin_search_ongoing1):
-#     """
-#     booking appointment if there is one available on the first calender page
-#     :param driver1:
-#     :param termin_search_ongoing1:
-#     :return: termin_search_ongoing1:
-#     """
-#     # todo: select by class "buchbar" instead (that skips available dates for the current day - too soon?)
-#     # eventually make a list of possible class buchbar elements and filter
-#     elem_buchen = driver1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-#     elem_buchen.click()
-#     termin_search_ongoing1 = False
-#     return termin_search_ongoing1
+    return True
 
 
-def select_appment(driver1):
-    elem_place_time = driver1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
-    # todo: specify time (and place)
+def select_appment(browser1):
+    """
+    selects the first available appointment
+    :param browser1: selenium browser object
+    :return: -
+    """
+    elem_place_time = browser1.find_elements(By.CSS_SELECTOR, "[title~=Zeitpunkt]")
     if type(elem_place_time) == list:  # if more than one appointment
         for available_appointment in elem_place_time:
             available_appointment.click()  # click on first appointment
@@ -120,43 +111,76 @@ def select_appment(driver1):
         elem_place_time.click()
 
 
-def fill_form_with_personal_info(person1, driver1):
+def fill_form_with_personal_info(person1: User, browser1):
+    """
+    automatically fill personal information into booking form
+    :param person1: class that holds the user's personal information
+    :param browser1: selenium browser object
+    :return:
+    """
     # automatically input name:
-    elem_family_name = driver1.find_element(By.ID, "familyName")
+    elem_family_name = browser1.find_element(By.ID, "familyName")
     elem_family_name.send_keys(person1.first_name + " " + person1.last_name)
     # automatically input email address:
-    elem_email = driver1.find_element(By.ID, "email")
+    elem_email = browser1.find_element(By.ID, "email")
     elem_email.send_keys(person1.email)
     # automatically select from drop down menu:
     elem_select_eval = Select(
-        WebDriverWait(driver1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
+        WebDriverWait(browser1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
     elem_select_eval.select_by_value('0')
 
     # agb Checkbox:
-    elem_nutzungsbedingungen = driver1.find_element(By.ID, "agbgelesen")  # this is not a typo!
+    elem_nutzungsbedingungen = browser1.find_element(By.ID, "agbgelesen")  # this is not a typo!
     elem_nutzungsbedingungen.click()
 
 
-def book_appointment(driver1):
+def book_appointment(browser1):
     """
     submits the appointment registration form
     -> DO NOT CAll THIS FUNCTION if you do not really want to book an appointment!!!
 
-    :param driver1:
+    :param browser1: selenium browser object
     :return: -
     """
-    btn_termin_eintragen = driver1.find_element(By.ID, "register_submit")
+    btn_termin_eintragen = browser1.find_element(By.ID, "register_submit")
     btn_termin_eintragen.click()
+
+
+def is_page_status_ok(page_html) -> bool:
+    """
+    checks if the website's information is accessible
+    :param page_html: the website's html code
+    :return: boolean depending on the status code
+    """
+    if page_html.status_code != 200:
+        print("URL Page Information not accessible")
+        return True
+    else:
+        return False
+
+
+def get_url_content(browser1):
+    """
+    returns html of a website if page status is OK
+    :param browser1: webdriver object that has the current url
+    :return: html code of the url
+    """
+    page_html = requests.get(browser1.current_url)
+    # check if url could not be accessed:
+    if is_page_status_ok(browser1.current_url):
+        return page_html
 
 
 if __name__ == "__main__":
     person_app = AppointmentWish()
     person = User()
-    driver = webdriver.Firefox()
-    driver.get("https://service.berlin.de/terminvereinbarung/")
-    driver.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
-    search_appment_type(person_app, driver)
-    choose_appment_location(driver)
-    termin_search1: bool = still_looking_for_appointment(driver)
-    select_appment(driver)
-    # fill_form_with_personal_info(person, driver)
+    search_interval = AppointmentSearchInterval()
+    browser = webdriver.Firefox()
+    browser.get("https://service.berlin.de/terminvereinbarung/")
+    browser.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
+    search_appment_type(person_app, browser)
+    choose_appment_location(browser)
+    termin_search1: bool = still_looking_for_appointment(browser, search_interval)
+    select_appment(browser)
+    fill_form_with_personal_info(person, browser)
+
