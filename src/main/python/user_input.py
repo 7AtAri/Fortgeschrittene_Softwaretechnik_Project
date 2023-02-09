@@ -103,7 +103,7 @@ class AppointmentSearchInterval:
 
 
 if __name__ == "__main__":
-    # a = User()
-    # b = AppointmentWish()
+    a = User()
+    b = AppointmentWish()
     c = AppointmentSearchInterval()
-    print(c.interval_in_seconds)
+

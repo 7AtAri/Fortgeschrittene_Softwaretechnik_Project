@@ -159,15 +159,15 @@ def is_page_status_ok(page_html) -> bool:
         return False
 
 
-def get_url_content(url1):
+def get_url_content(browser1):
     """
     returns html of a website if page status is OK
-    :param url1: any given url
+    :param browser1: webdriver object that has the current url
     :return: html code of the url
     """
-    page_html = requests.get(url1)
+    page_html = requests.get(browser1.current_url)
     # check if url could not be accessed:
-    if is_page_status_ok(url1):
+    if is_page_status_ok(browser1.current_url):
         return page_html
 
 
@@ -175,11 +175,11 @@ if __name__ == "__main__":
     person_app = AppointmentWish()
     person = User()
     search_interval = AppointmentSearchInterval()
-    driver = webdriver.Firefox()
-    driver.get("https://service.berlin.de/terminvereinbarung/")
-    driver.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
-    search_appment_type(person_app, driver)
-    choose_appment_location(driver)
-    termin_search1: bool = still_looking_for_appointment(driver, search_interval)
-    select_appment(driver)
-    fill_form_with_personal_info(person, driver)
+    browser = webdriver.Firefox()
+    browser.get("https://service.berlin.de/terminvereinbarung/")
+    browser.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
+    search_appment_type(person_app, browser)
+    choose_appment_location(browser)
+    termin_search1: bool = still_looking_for_appointment(browser, search_interval)
+    select_appment(browser)
+    fill_form_with_personal_info(person, browser)
