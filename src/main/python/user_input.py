@@ -19,12 +19,12 @@ class User:
             try:
                 fname = input("first name:")
                 assert (fname.isalpha())
-                assert(len(fname) > 1)
+                assert (len(fname) > 1)
                 self.first_name = fname
 
                 lname = input("last name:")
                 assert (lname.isalpha())
-                assert(len(lname) > 1)
+                assert (len(lname) > 1)
                 self.last_name = lname
                 break
             except AssertionError:
@@ -82,7 +82,7 @@ class AppointmentSearchInterval:
         seconds_per_hour: Final[int] = 3600
         min_interval_hours: Final[int] = 1
         max_interval_hours: Final[int] = 72
-
+        calc_int_secs = lambda x, y: x * y
         list_available_hours = pvector([x for x in range(min_interval_hours, max_interval_hours)])
 
         print("Please choose the preferred search interval,\n"
@@ -95,7 +95,7 @@ class AppointmentSearchInterval:
                 self.interval_hours = interval_hours
                 assert (interval_hours.isnumeric())
                 assert ((int(interval_hours) in list_available_hours) is True)
-                self.interval_in_seconds = int(interval_hours) * seconds_per_hour
+                self.interval_in_seconds = calc_int_secs(int(interval_hours), seconds_per_hour)
                 print("\n")
                 break
             except AssertionError:
@@ -106,4 +106,3 @@ if __name__ == "__main__":
     a = User()
     b = AppointmentWish()
     c = AppointmentSearchInterval()
-
