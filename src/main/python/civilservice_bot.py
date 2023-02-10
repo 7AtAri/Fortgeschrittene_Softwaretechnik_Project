@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
 import requests
 
+
 try:
     from user_input import User, AppointmentWish, AppointmentSearchInterval
 

@@ -5,13 +5,15 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 try:
-    import src.main.python.civilservice_bot
+    from civilservice_bot import search_appment_type
+    # import src.main.python.civilservice_bot
 
 except ModuleNotFoundError:
     from ...main.python.civilservice_bot import search_appment_type
 
 try:
-    import src.main.python.user_input
+    from user_input import User, AppointmentWish
+    # import src.main.python.user_input
 
 except ModuleNotFoundError:
     from ...main.python.user_input import User, AppointmentWish
@@ -28,7 +30,7 @@ class AppointmentBotTest(unittest.TestCase):
 
     # @classmethod
     def setUp(self):
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox(executable_path="/usr/local/bin/geckodriver")
         self.driver.implicitly_wait(5)
 
         # navigate to the civil service page

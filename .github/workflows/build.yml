@@ -29,6 +29,21 @@ jobs:
       - name: pybuilder build
         uses: pybuilder/build@master
         
+  test:
+    name: unit-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python3
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: UNIT TESTS
+        run: |
+            python3 -m pip install --upgrade pip
+            pip install -r requirements.txt
+            python3 -m unittest -v src/unittest/python/appointmentbot_tests.py
+            
 
 
           
