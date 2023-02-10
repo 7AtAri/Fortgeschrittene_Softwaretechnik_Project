@@ -104,7 +104,7 @@ python3 -m unittest -v src/unittest/python/bot_test_local.py
 
 ### 8 - Continuous Delivery:
 
-For CD I am using Github Actions. 
+For CD I am using [Github Actions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/actions). 
 
 I set up sonarcube, pybuilder and unittests to be part of my [Github Actions workflow](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/.github/workflows/build.yml).
 The workflow is configured to be executed at every push to the repository, so that metrics, tests and a project build are done for every newly uploaded code. 
