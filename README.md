@@ -94,8 +94,8 @@ panel by checking the recent build.yml files and following the pybuilder link.
 
 
 ### 7 - Unit-Tests
-My [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/test_appointmentbot.py) are integrated as an action into the project's github workflow.
-This means, that like the build-process and metrics, these are executed at every push to the repository.
+My [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/test_appointmentbot.py) are integrated in pybuilder. Since pybuilder is integrated as an action into the project's github workflow, the tests are executed at every push to the repository within the build. 
+It is also possible to run the tests locally: 
 
 ### 8 - Continuous Delivery:
 
