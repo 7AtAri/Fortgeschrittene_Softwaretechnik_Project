@@ -75,7 +75,7 @@ and that the projects metrics are displayed with badges here:
 ### 5 - Clean Code Development: 
 
 A) Clean code examples in my code:
-- Replace Magic Number by a [function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/bf32637d7460062c24e1fd9ba7a6a254d175f331/src/main/python/main.py#L74)
+- Replace [Magic Number](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/bf32637d7460062c24e1fd9ba7a6a254d175f331/src/main/python/main.py#L74) by AppointmentSearchInterval class attribute "interval_in_seconds" that is defined by user input.
 - Delete [commented out](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/abd6c4d2023cb7f22c0f9ff6980eebc7e4ab1202#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233) feature code and keep it in feature branch only
 - [Function refactoring](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) so that each function only does one thing.
 - Followed [naming conventions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/1eca63492484012cd03e442262f2afa28e316180) in function names for Python code (Pep8)
