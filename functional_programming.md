@@ -31,7 +31,7 @@ project structure.
    https://docs.python.org/3/library/pickle.html#comparison-with-marshal
    -> Pyrsistent
    https://pypi.org/project/pyrsistent/
-### 4) User Higher Order Functions -> in python: decorators
+### 4) UserInfo Higher Order Functions -> in python: decorators
 Passing and returning functions like variables
    https://www.youtube.com/watch?v=n_Y-_7R2KsY
    https://realpython.com/primer-on-python-decorators/

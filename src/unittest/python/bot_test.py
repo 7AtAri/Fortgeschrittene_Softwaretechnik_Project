@@ -20,7 +20,7 @@ try:
     # import src.main.python.user_input
 
 except ModuleNotFoundError:
-    from ...main.python.user_input import User, AppointmentWish
+    from ...main.python.user_input import UserInfo, AppointmentWish
 
 
 display = Display(visible=False, size=(800, 800))

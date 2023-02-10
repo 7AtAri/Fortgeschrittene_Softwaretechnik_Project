@@ -8,10 +8,10 @@ import requests
 
 
 try:
-    from user_input import User, AppointmentWish, AppointmentSearchInterval
+    from user_input import UserInfo, AppointmentWish, BotSearchInterval
 
 except ModuleNotFoundError:
-    from ...main.python.user_input import User, AppointmentWish, AppointmentSearchInterval
+    from ...main.python.user_input import UserInfo, AppointmentWish, BotSearchInterval
 
 
 # selenium docu:
@@ -71,7 +71,7 @@ def turn_cal_page(browser1):
     elem_next.click()
 
 
-def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchInterval) -> bool:
+def still_looking_for_appointment(browser1, search_interval1: BotSearchInterval) -> bool:
     """
     if appointment dates are not available return True,
     if there is at lest one appointment date available return False.
@@ -91,8 +91,8 @@ def still_looking_for_appointment(browser1, search_interval1: AppointmentSearchI
                 choose_app_date(browser1)
                 return False
             except NoSuchElementException:
-                print("Leider aktuell kein buchbarer Termin vorhanden!\n"
-                      "Neue Suche innerhalb " + str(search_interval1.interval_hours) + " Stunde(n) beauftragt.\n")
+                print("Currently no appointments are available!\n"
+                      "New automatic search scheduled in " + str(search_interval1.interval_hours) + " hour(s).\n")
                 break
     return True
 
@@ -112,7 +112,7 @@ def select_appment(browser1):
         elem_place_time.click()
 
 
-def fill_form_with_personal_info(person1: User, browser1):
+def fill_form_with_personal_info(person1: UserInfo, browser1):
     """
     automatically fill personal information into booking form
     :param person1: class that holds the user's personal information
@@ -174,8 +174,8 @@ def get_url_content(browser1):
 
 if __name__ == "__main__":
     person_app = AppointmentWish()
-    person = User()
-    search_interval = AppointmentSearchInterval()
+    person = UserInfo()
+    search_interval = BotSearchInterval()
     browser = webdriver.Firefox()
     browser.get("https://service.berlin.de/terminvereinbarung/")
     browser.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call

@@ -3,9 +3,13 @@ from typing import Final
 from pyrsistent import pvector
 
 
-class User:
+def converter(n):
+    return lambda x: x * n
+
+
+class UserInfo:
     """
-    Relevant information about the User
+    Relevant information about the UserInfo
     Attributes:
         first name (str)
         last name (str)
@@ -68,7 +72,7 @@ class AppointmentWish:
                 print("This is not a valid appointment type. Try again!")
 
 
-class AppointmentSearchInterval:
+class BotSearchInterval:
     """
     Relevant information about the search interval.
     Choose within how many hours the bot should
@@ -82,7 +86,9 @@ class AppointmentSearchInterval:
         seconds_per_hour: Final[int] = 3600
         min_interval_hours: Final[int] = 1
         max_interval_hours: Final[int] = 72
-        calc_int_secs = lambda x, y: x * y
+
+        convert_hours_to_seconds = converter(seconds_per_hour)
+
         list_available_hours = pvector([x for x in range(min_interval_hours, max_interval_hours)])
 
         print("Please choose the preferred search interval,\n"
@@ -95,7 +101,7 @@ class AppointmentSearchInterval:
                 self.interval_hours = interval_hours
                 assert (interval_hours.isnumeric())
                 assert ((int(interval_hours) in list_available_hours) is True)
-                self.interval_in_seconds = calc_int_secs(int(interval_hours), seconds_per_hour)
+                self.interval_in_seconds = convert_hours_to_seconds(int(interval_hours))
                 print("\n")
                 break
             except AssertionError:
@@ -103,6 +109,6 @@ class AppointmentSearchInterval:
 
 
 if __name__ == "__main__":
-    a = User()
+    a = UserInfo()
     b = AppointmentWish()
-    c = AppointmentSearchInterval()
+    c = BotSearchInterval()
