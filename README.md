@@ -97,10 +97,7 @@ panel by checking the recent build.yml files and following the pybuilder link.
 
 
 ### 7 - Unit-Tests
-My project's [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/bot_test.py) are are integrated in the project's github action workflow, the tests are executed at every push and pull to the repository. This way I can test my own code as well as my code's outside dependencies. If the civil-service website's functionality is changed in a way that effects my project as well, for example, if a button is no longer on the page, the automated tests will let me know.
-You can also run the tests locally with:
-
-python3 -m unittest -v src/unittest/python/bot_test.py
+My project's [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/bot_test.py) are integrated in the project's github action workflow. This means that the tests are executed at every push and pull to the repository. This way I can test my own code as well as my code's outside dependencies. If the civil-service website's functionality is changed in a way that effects my project as well, for example, if a button is no longer on the page, the automated tests will let me know.
 
 ### 8 - Continuous Delivery:
 
