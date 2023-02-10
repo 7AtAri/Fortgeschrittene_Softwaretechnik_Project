@@ -87,10 +87,25 @@ def fill_form_with_personal_info(person1: UserInfo, browser1):
 
 
 def use_drop_down_menu(browser1):
+    """
+    selects element from a dropdown menue automatically
+    :param browser1:
+    :return:
+    """
     # automatically select from drop down menu:
     elem_select_eval = Select(
         WebDriverWait(browser1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
     elem_select_eval.select_by_value('0')
+
+
+def search_appment_type(person_app1: AppointmentWish, browser1):
+    """
+    Searches for the user's chosen appointment type and selects it
+    :param person_app1: class that holds appointment wishes of the user
+    :param browser1: selenium browser object
+    :return: -
+    """
+    browser1.find_element(By.LINK_TEXT, person_app1.appointment_type).click()
 
 
 def is_page_status_ok(page_html) -> bool:

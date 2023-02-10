@@ -94,4 +94,25 @@ class AppointmentBotTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    display = Display(visible=False, size=(800, 800))
+    display.start()
+
+    chromedriver_autoinstaller.install()
+    # Check if the current version of chromedriver exists
+    # and if it doesn't exist, download it automatically,
+    # then add chromedriver to path
+
+    chrome_options = webdriver.chrome.options.Options()
+    # Add your options as needed
+    options = [
+        # Define window size here
+        "--window-size=1200,1200",
+        "--ignore-certificate-errors"
+        # "--headless",
+        # '--remote-debugging-port=9222'
+    ]
+
+    for option in options:
+        chrome_options.add_argument(option)
+
     unittest.main()
