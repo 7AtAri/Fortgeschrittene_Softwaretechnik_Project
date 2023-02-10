@@ -30,6 +30,7 @@ import sched
 import time
 from user_input import UserInfo, AppointmentWish, BotSearchInterval
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 # from selenium.webdriver.firefox.options import Options
 import civilservice_bot as bot
 import secrets
@@ -59,16 +60,29 @@ def schedule(user_info1, appointment_wish1, bot_search_interval1):
     :return:
     """
     url = "https://service.berlin.de/terminvereinbarung/"
-    browser = create_browser_marionette(url)  # creates a selenium browser object for the given url
-    bot.search_appment_type(appointment_wish1,
-                            browser)  # bot searches appointment types with help of browser and appointment wish
-    bot.choose_appment_location(browser)  # bot choses appointment based on wish
+
+    # creates a selenium browser object for the given url:
+    browser = create_browser_marionette(url)
+
+    # bot selects appointment type according to wish:
+    bot.use_element("click", browser, appointment_wish1.appointment_type, By.LINK_TEXT)
+
+    # bot selects appointments all over Berlin:
+    bot.use_element("click", browser, "Termin berlinweit suchen", By.LINK_TEXT)
+
     termin_search_ongoing_1: bool = bot.still_looking_for_appointment(browser,
                                                                       bot_search_interval1)  # did the bot not find an appointment?
     if not termin_search_ongoing_1:  # bot found an appointment
         bot.select_appment(browser)
         bot.fill_form_with_personal_info(user_info1, browser)
-        # bot.book_appointment(browser) #!!! only comment in if you really want to book an appointment
+
+        # bot checks "AgB gelesen" Box:
+        bot.use_element("click", browser, "agbgelesen", By.ID)
+
+        # bot submits the appointment registration:
+        # !!! only comment in if you really want to book an appointment:
+        # bot.use_element("click", browser, "register_submit", By.ID)
+
         browser.quit()  # selenium browser object is shut down
     else:
         #  if the bot did not find an appointment:

@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
+from src.main.python.decorators import modus_operandi
 import requests
-
 
 try:
     from user_input import UserInfo, AppointmentWish, BotSearchInterval
@@ -14,61 +14,16 @@ except ModuleNotFoundError:
     from ...main.python.user_input import UserInfo, AppointmentWish, BotSearchInterval
 
 
-# selenium docu:
-# selenium documentation:
-# https://selenium-python.readthedocs.io/index.html
-# https://www.scrapingbee.com/blog/selenium-python/
-
-# depending on version of selenium, geckodriver is not necessary to use firefox:
-# this is the path on my computer where I store the geckodriver for firefox
-# os.environ['PATH'] += r"/Users/ari/Documents/Data_Science/1_Semester/Fortgeschrittene\ " \
-#                       r"Softwaretechnik/Fortgeschrittene_Softwaretechnik_Project2 "
-
-# css selectors:
-# https://www.w3schools.com/cssref/css_selectors.php
-
-
-def find_element_by(browser1, sometext, bytype):
-    browser1.find_element(bytype, sometext).click()
-
-
-def search_appment_type(person_app1: AppointmentWish, browser1):
+@modus_operandi
+def use_element(browser1, sometext, bytype):
     """
-    Searches for the user's chosen appointment type and selects it
-    :param person_app1: class that holds appointment wishes of the user
-    :param browser1: selenium browser object
+    Helperfunction that finds an element on a website an clicks on it
+    :param browser1: selenium webdriver object
+    :param sometext: the text to look for
+    :param bytype: the element type to search the page for
     :return: -
     """
-    browser1.find_element(By.LINK_TEXT, person_app1.appointment_type).click()
-
-
-def choose_appment_location(browser1):
-    """
-    Chooses all available appointment locations in berlin
-    :param browser1: selenium browser object
-    :return: -
-    """
-    browser1.find_element(By.LINK_TEXT, "Termin berlinweit suchen").click()
-
-
-def choose_app_date(browser1):
-    """
-    chooses the first available date for appointments
-    :param browser1: selenium browser object
-    :return: -
-    """
-    elem_buchen = browser1.find_element(By.CSS_SELECTOR, "[title~=buchen]")
-    elem_buchen.click()
-
-
-def turn_cal_page(browser1):
-    """
-    turns the calender page of the civil service appointment calender
-    :param browser1: selenium browser object
-    :return: -
-    """
-    elem_next = browser1.find_element(By.CSS_SELECTOR, "[title~=nächster]")
-    elem_next.click()
+    return browser1.find_element(bytype, sometext)
 
 
 def still_looking_for_appointment(browser1, search_interval1: BotSearchInterval) -> bool:
@@ -83,12 +38,15 @@ def still_looking_for_appointment(browser1, search_interval1: BotSearchInterval)
     while True:
         try:
             # booking appointment if there is one on the 1st calender page
-            choose_app_date(browser1)
+            # choose_app_date(browser1)
+            use_element("click", browser1, "[title~=buchen]", By.CSS_SELECTOR)
             return False
         except NoSuchElementException:
             try:  # if no appointment on calendar page 1: try next calender page
-                turn_cal_page(browser1)
-                choose_app_date(browser1)
+                # turn_cal_page(browser1)
+                use_element("click", browser1, "[title~=nächster]", By.CSS_SELECTOR)
+                use_element("click", browser1, "[title~=buchen]", By.CSS_SELECTOR)
+                # choose_app_date(browser1)
                 return False
             except NoSuchElementException:
                 print("Currently no appointments are available!\n"
@@ -122,29 +80,15 @@ def fill_form_with_personal_info(person1: UserInfo, browser1):
     # automatically input name:
     elem_family_name = browser1.find_element(By.ID, "familyName")
     elem_family_name.send_keys(person1.first_name + " " + person1.last_name)
+
     # automatically input email address:
     elem_email = browser1.find_element(By.ID, "email")
     elem_email.send_keys(person1.email)
+
     # automatically select from drop down menu:
     elem_select_eval = Select(
         WebDriverWait(browser1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
     elem_select_eval.select_by_value('0')
-
-    # agb Checkbox:
-    elem_nutzungsbedingungen = browser1.find_element(By.ID, "agbgelesen")  # this is not a typo!
-    elem_nutzungsbedingungen.click()
-
-
-def book_appointment(browser1):
-    """
-    submits the appointment registration form
-    -> DO NOT CAll THIS FUNCTION if you do not really want to book an appointment!!!
-
-    :param browser1: selenium browser object
-    :return: -
-    """
-    btn_termin_eintragen = browser1.find_element(By.ID, "register_submit")
-    btn_termin_eintragen.click()
 
 
 def is_page_status_ok(page_html) -> bool:
@@ -179,8 +123,11 @@ if __name__ == "__main__":
     browser = webdriver.Firefox()
     browser.get("https://service.berlin.de/terminvereinbarung/")
     browser.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
-    search_appment_type(person_app, browser)
-    choose_appment_location(browser)
+    use_element(browser, person_app.appointment_type, By.LINK_TEXT)
+    use_element("click", browser, "Termin berlinweit suchen", By.LINK_TEXT)
     termin_search1: bool = still_looking_for_appointment(browser, search_interval)
     select_appment(browser)
     fill_form_with_personal_info(person, browser)
+    use_element("click", browser, "agbgelesen", By.ID)
+    # !!! submit registered form only incomment when you really want to book an appointment:
+    # use_element("click", browser, "register_submit", By.ID)
