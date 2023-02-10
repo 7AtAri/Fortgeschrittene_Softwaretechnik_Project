@@ -4,6 +4,11 @@ from pyrsistent import pvector
 
 
 def converter(n):
+    """
+    Helperfunction to convert measurements
+    :param n: int (number to be multiplied with)
+    :return: lambda function
+    """
     return lambda x: x * n
 
 
