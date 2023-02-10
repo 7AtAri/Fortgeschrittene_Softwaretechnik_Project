@@ -70,11 +70,11 @@ def schedule(url2, personal_info, person_appointment_wish, task_scheduler, bot_s
         browser.quit()  # selenium browser object is shut down
     else:
         #  if the bot did not find an appointment:
-        #  task is repeated randomly within in the next 24 Hours
-        task_scheduler.enter(secrets.randbelow(bot_search_interval1.interval_in_seconds),
-                             1,
-                             schedule,
-                             (url2, personal_info, person_appointment_wish, task_scheduler, bot_search_interval1))
+        #  task is repeated randomly within in the chosen interval
+        task_scheduler.enter(delay=secrets.randbelow(bot_search_interval1.interval_in_seconds),
+                             priority=1,
+                             action=schedule,
+                             argument=(url2, personal_info, person_appointment_wish, task_scheduler, bot_search_interval1))
         task_scheduler.run()
 
 
