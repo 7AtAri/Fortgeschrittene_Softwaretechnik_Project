@@ -22,6 +22,9 @@ install the following libraries via pip:
 3) beautiful soup 
 4) bs4
 5) pybuilder
+6) pyrsistent
+7) pyvirtualdisplay
+8) chromedriver_autoinstaller
 
 or use the provided requirements text file:
 ```diff 
