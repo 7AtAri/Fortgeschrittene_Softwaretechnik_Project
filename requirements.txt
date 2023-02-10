@@ -4,3 +4,4 @@ beautifulsoup4==4.11.2
 selenium==4.6.0
 pybuilder~=0.13.8
 pyrsistent~=0.19.3
+pyvirtualdisplay~=3.0
