@@ -139,7 +139,7 @@ In my project
 - I used the [package pyresistent](https://pypi.org/project/pyrsistent/) to convert the list of possible search intervals into a [final datastructure](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/722c25bb40abc4f79f3337deb05c1b847d682611#diff-d283440e31c4e4b0db72165fa8e9adb638efc0895f3628a8bfd6903f307fd233).
 - Since the project relies on user input and the interaction of the bot with the website, it can not be free of side effects. In fact it relies on side effects, because it manipulates the browser object in each of the bots actions. Still I tried to keep my functions as [side-effect free]() as possible.
 - When possible I used [list comprehensions instead of loops](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/722c25bb40abc4f79f3337deb05c1b847d682611/src/main/python/user_input.py#L86).
-- As [decorators]() are the main way to use [higher-order functions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/4f9976cc22cba5ff15a2315fcf3f3f6af1b69a22/src/main/python/main.py#L92) in Python, I tried to use them as often as possible.
+- As [decorators](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/a84d701302b93d9e41babf7e92d6d559368017b1/src/main/python/decorators.py#L1) are the main way to use [higher-order functions](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/4f9976cc22cba5ff15a2315fcf3f3f6af1b69a22/src/main/python/main.py#L92) in Python, I tried to use them as often as possible.
 - In Python the lambda keyword is used to define an [anonymous function](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/commit/471be4a90e4aa09434456fbb1ff51bbbd2ea0d29).
 
 
