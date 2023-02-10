@@ -75,6 +75,7 @@ def schedule(user_info1, appointment_wish1, bot_search_interval1):
     if not termin_search_ongoing_1:  # bot found an appointment
         bot.select_appment(browser)
         bot.fill_form_with_personal_info(user_info1, browser)
+        bot.use_drop_down_menu(browser)
 
         # bot checks "AgB gelesen" Box:
         bot.use_element("click", browser, "agbgelesen", By.ID)

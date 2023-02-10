@@ -85,6 +85,8 @@ def fill_form_with_personal_info(person1: UserInfo, browser1):
     elem_email = browser1.find_element(By.ID, "email")
     elem_email.send_keys(person1.email)
 
+
+def use_drop_down_menu(browser1):
     # automatically select from drop down menu:
     elem_select_eval = Select(
         WebDriverWait(browser1, 10).until(ec.element_to_be_clickable((By.CLASS_NAME, "field-type-select"))))
