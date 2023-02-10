@@ -94,19 +94,19 @@ panel by checking the recent build.yml files and following the pybuilder link.
 
 
 ### 7 - Unit-Tests
-My project's [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/test_appointmentbot.py) are are integrated in the project's github action workflow, the tests are executed at every push to the repository. 
-There are some unittests for the civil service website, you can run them locally with:
+My project's [unit-tests](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/src/unittest/python/test_appointmentbot.py) are are integrated in the project's github action workflow, the tests are executed at every push to the repository. This way I can test my own code as well as my code's outside dependencies. If the civil-service website's functionality is changed in a way that effects my project as well, the automated tests will let me know.
+You can also run the tests locally with:
 
-python3 -m unittest -v src/unittest/python/appointmentbot_tests.py
+python3 -m unittest -v src/unittest/python/bot_test.py
+
+This can be helpful if you want to test your code before a commit or push as well.
 
 ### 8 - Continuous Delivery:
 
 For CD I am using Github Actions. 
 
-I already set up sonarcube and pybuilder to be part of my [Github Actions workflow](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/.github/workflows/build.yml).
-
-Next I will add testing to the workflow.
-https://docs.github.com/de/actions/automating-builds-and-tests/building-and-testing-python
+I set up sonarcube, pybuilder and unittests to be part of my [Github Actions workflow](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/main/.github/workflows/build.yml).
+The workflow is configured to be executed at every push to the repository, so that metrics, tests and a project build are done for every newly uploaded code. 
 
 ### 9 - IDE
 I use PyCharm as IDE for the project. Since I do the project in Python,
