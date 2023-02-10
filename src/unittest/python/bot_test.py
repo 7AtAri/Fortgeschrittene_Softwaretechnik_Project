@@ -9,15 +9,13 @@ from selenium.webdriver.chrome.options import Options
 # from selenium.webdriver.chrome.service import Service
 
 try:
-    from civilservice_bot import search_appment_type
-    # import src.main.python.civilservice_bot
+    from src.main.python.civilservice_bot import search_appment_type
 
 except ModuleNotFoundError:
     from ...main.python.civilservice_bot import search_appment_type
 
 try:
-    from user_input import User, AppointmentWish
-    # import src.main.python.user_input
+    from src.main.python.user_input import UserInfo, AppointmentWish
 
 except ModuleNotFoundError:
     from ...main.python.user_input import UserInfo, AppointmentWish
@@ -26,7 +24,8 @@ except ModuleNotFoundError:
 display = Display(visible=False, size=(800, 800))
 display.start()
 
-chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
+chromedriver_autoinstaller.install()
+# Check if the current version of chromedriver exists
 # and if it doesn't exist, download it automatically,
 # then add chromedriver to path
 
@@ -37,12 +36,6 @@ options = [
     "--window-size=1200,1200",
     "--ignore-certificate-errors"
     # "--headless",
-    # "--disable-gpu",
-    # "--window-size=1920,1200",
-    # "--ignore-certificate-errors",
-    # "--disable-extensions",
-    # "--no-sandbox",
-    # "--disable-dev-shm-usage",
     # '--remote-debugging-port=9222'
 ]
 
@@ -89,7 +82,7 @@ class AppointmentBotTest(unittest.TestCase):
 
     def is_element_present(self, locator_type, locator_value):
         """
-        Method to confirm the presence of an element on url-page
+        Helpermethod to confirm the presence of an element on url-page
         -input: locator_type (selenium element id type)
                 locator_value (specific element value to look for)
         """
