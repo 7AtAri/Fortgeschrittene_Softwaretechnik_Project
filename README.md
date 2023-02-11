@@ -26,22 +26,22 @@ To simply use the bot:
 5) pyrsistent
 
 For the whole CI-Pipeline additionally:
+
 6) pybuilder
 7) pyvirtualdisplay
-8) chromedriver_autoinstaller
+8) geckodriver_autoinstaller / chromedriver_autoinstaller
 
 or use the provided requirements text file:
 ```diff 
 pip install -r requirements.txt
 ```
 
-please also download and install a selenium webdriver for your specific browser:
-https://pypi.org/project/selenium/
-
-Firefox, for example, requires geckodriver, 
-which needs to be installed before the code can be run. 
-Make sure it’s in your PATH, e. g., 
-place it in /usr/bin or /usr/local/bin.
+For Chrome, out-comment the Firefox related lines and in-comment Chrome code.
+If you prefer another browser, you have to download the browser's driver and 
+change the code to your preferences instead.
+Please download and install a selenium webdriver for your specific browser:
+[https://www.selenium.dev/selenium/docs/api/py/#drivers](https://www.selenium.dev/selenium/docs/api/py/#drivers)
+! Make sure it’s in your PATH, e. g., place it in /usr/bin or /usr/local/bin.
 
 --------------------------------------------------
 ## (B) Project: Online Appointment/Reservation Bot
