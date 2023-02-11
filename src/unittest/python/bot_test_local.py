@@ -1,12 +1,8 @@
-import chromedriver_autoinstaller
-from pyvirtualdisplay import Display
 import unittest
 # from unittest.mock import patch
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-# from selenium.webdriver.chrome.service import Service
 
 try:
     from src.main.python.civilservice_bot import search_appment_type
@@ -21,33 +17,12 @@ except ModuleNotFoundError:
     from ...main.python.user_input import UserInfo, AppointmentWish
 
 
-display = Display(visible=False, size=(800, 800))
-display.start()
-
-chromedriver_autoinstaller.install()
-# Check if the current version of chromedriver exists
-# and if it doesn't exist, download it automatically,
-# then add chromedriver to path
-
-chrome_options = webdriver.chrome.options.Options()
-# Add your options as needed
-options = [
-    # Define window size here
-    "--window-size=1200,1200",
-    "--ignore-certificate-errors"
-    # "--headless",
-    # '--remote-debugging-port=9222'
-]
-
-for option in options:
-    chrome_options.add_argument(option)
-
-
 class AppointmentBotTest(unittest.TestCase):
 
     # @classmethod
     def setUp(self):
-        self.driver = webdriver.Chrome(options=chrome_options)
+        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox(executable_path="/usr/local/bin/geckodriver")
         self.driver.implicitly_wait(5)
 
         # navigate to the civil service page
@@ -64,25 +39,23 @@ class AppointmentBotTest(unittest.TestCase):
     def test_search_appment_type_anmeldung(self):
         # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Anmelden einer Wohnung"))
-
     # def...():
     #     self.browser.get('https://service.berlin.de/terminvereinbarung')
     #     self.assertIn('Google', self.browser.title)
-
     # # @staticmethod
     # def test_get_url_content(self):
     #     with patch('main.requests.get') as mocked_get:
     #         mocked_get.return_value.ok = True
     #         mocked_get.return_value.text = 'Success'
-
     # @classmethod
     # to close the browser in the end
+
     def tearDown(self) -> None:
         self.driver.quit()
 
     def is_element_present(self, locator_type, locator_value):
         """
-        Helpermethod to confirm the presence of an element on url-page
+        Method to confirm the presence of an element on url-page
         -input: locator_type (selenium element id type)
                 locator_value (specific element value to look for)
         """
@@ -94,25 +67,4 @@ class AppointmentBotTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    display = Display(visible=False, size=(800, 800))
-    display.start()
-
-    chromedriver_autoinstaller.install()
-    # Check if the current version of chromedriver exists
-    # and if it doesn't exist, download it automatically,
-    # then add chromedriver to path
-
-    chrome_options = webdriver.chrome.options.Options()
-    # Add your options as needed
-    options = [
-        # Define window size here
-        "--window-size=1200,1200",
-        "--ignore-certificate-errors"
-        # "--headless",
-        # '--remote-debugging-port=9222'
-    ]
-
-    for option in options:
-        chrome_options.add_argument(option)
-
     unittest.main()

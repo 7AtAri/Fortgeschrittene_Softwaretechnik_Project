@@ -42,7 +42,7 @@ jobs:
         run: |
             python3 -m pip install --upgrade pip
             pip install -r requirements.txt
-            python3 -m unittest -v src/unittest/python/bot_test.py
+            python3 -m unittest -v src/unittest/python/bot_test_web.py
             
 
 
