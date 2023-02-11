@@ -29,7 +29,7 @@ For the whole CI-Pipeline additionally:
 
 6) pybuilder
 7) pyvirtualdisplay
-8) chromedriver_autoinstaller
+8) geckodriver_autoinstaller / chromedriver_autoinstaller
 
 or use the provided requirements text file:
 ```diff 
