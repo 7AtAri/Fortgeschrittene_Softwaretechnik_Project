@@ -26,6 +26,7 @@ To simply use the bot:
 5) pyrsistent
 
 For the whole CI-Pipeline additionally:
+
 6) pybuilder
 7) pyvirtualdisplay
 8) chromedriver_autoinstaller
