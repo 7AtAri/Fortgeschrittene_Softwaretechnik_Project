@@ -1,3 +1,7 @@
+###### DSl - textx ######
+
+http://textx.github.io/textX/3.1/grammar/
+https://tomassetti.me/domain-specific-languages-in-python-with-textx/
 
 ###### SElENIUM DOCUMENTATION: ######
 
@@ -14,7 +18,11 @@ os.environ['PATH'] += r"/Users/ari/Documents/Data_Science/1_Semester/Fortgeschri
 css selectors:
 https://www.w3schools.com/cssref/css_selectors.php
 
-
+calender dates picking:
+https://www.youtube.com/watch?v=0b2No_0cVcc  (Python)
+https://www.youtube.com/watch?v=yW1-IbI_soc
+https://www.youtube.com/watch?v=HqzlDEPdJ3w
+https://www.youtube.com/watch?v=P4hQI-0X3w0
 
 ###### TESTING DOCUMENTATION: ######
 
@@ -40,6 +48,8 @@ general:
 https://realpython.com/primer-on-python-decorators/
 https://www.freecodecamp.org/news/python-property-decorator/
 https://en.wikipedia.org/wiki/Python_syntax_and_semantics#Decorators
+chaining decorators:
+https://www.programiz.com/python-programming/decorator
 
 # FUNCTOOlS #
 https://docs.python.org/3/library/functools.html
