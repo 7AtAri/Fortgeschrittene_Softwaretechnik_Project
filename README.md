@@ -17,12 +17,16 @@ e.g. possible use cases:
 What you will need to install the project:
 
 install the following libraries via pip: 
+
+To simply use the bot:
 1) selenium
 2) requests
 3) beautiful soup 
 4) bs4
-5) pybuilder
-6) pyrsistent
+5) pyrsistent
+
+For the whole CI-Pipeline additionally:
+6) pybuilder
 7) pyvirtualdisplay
 8) chromedriver_autoinstaller
 
