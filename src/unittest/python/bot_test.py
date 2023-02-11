@@ -1,4 +1,4 @@
-import chromedriver_autoinstaller
+# import chromedriver_autoinstaller
 import geckodriver_autoinstaller
 from pyvirtualdisplay import Display
 import unittest
@@ -6,8 +6,6 @@ import unittest
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-# from selenium.webdriver.chrome.service import Service
 
 try:
     from src.main.python.civilservice_bot import search_appment_type
@@ -27,22 +25,6 @@ display.start()
 
 geckodriver_autoinstaller.install()
 # chromedriver_autoinstaller.install()
-# # Check if the current version of chromedriver exists
-# # and if it doesn't exist, download it automatically,
-# # then add chromedriver to path
-#
-# chrome_options = webdriver.chrome.options.Options()
-# # Add your options as needed
-# options = [
-#     # Define window size here
-#     "--window-size=1200,1200",
-#     "--ignore-certificate-errors"
-#     # "--headless",
-#     # '--remote-debugging-port=9222'
-# ]
-#
-# for option in options:
-#     chrome_options.add_argument(option)
 
 
 class AppointmentBotTest(unittest.TestCase):
@@ -50,8 +32,7 @@ class AppointmentBotTest(unittest.TestCase):
     # @classmethod
     def setUp(self):
         self.driver = webdriver.Firefox()
-        # self.driver = webdriver.Firefox(executable_path="/usr/local/bin/geckodriver")
-        # self.driver = webdriver.Chrome(options=chrome_options)
+        # self.driver = webdriver.Chrome() # option if you are using chrome
         self.driver.implicitly_wait(5)
 
         # navigate to the civil service page
@@ -101,22 +82,6 @@ if __name__ == '__main__':
     display = Display(visible=False, size=(800, 800))
     display.start()
     geckodriver_autoinstaller.install()
+    # chromedriver_autoinstaller.install()
     unittest.main()
 
-    # chromedriver_autoinstaller.install()
-    # Check if the current version of chromedriver exists
-    # and if it doesn't exist, download it automatically,
-    # then add chromedriver to path
-
-    # chrome_options = webdriver.chrome.options.Options()
-    # # Add your options as needed
-    # options = [
-    #     # Define window size here
-    #     "--window-size=1200,1200",
-    #     "--ignore-certificate-errors"
-    #     # "--headless",
-    #     # '--remote-debugging-port=9222'
-    # ]
-    #
-    # for option in options:
-    #     chrome_options.add_argument(option)
