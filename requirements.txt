@@ -7,4 +7,6 @@ pyrsistent~=0.19.3
 pyvirtualdisplay~=3.0
 textx~=3.1.1
 pandas~=1.5.3
+geckodriver_autoinstaller~=0.1.0
+
 
