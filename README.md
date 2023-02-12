@@ -41,9 +41,6 @@ or use the provided requirements text file:
 pip install -r requirements.txt
 ```
 
-For Chrome, out-comment the Firefox related lines and in-comment Chrome code.
-If you prefer another browser, you have to download the browser's driver and 
-change the code to your preferences instead.
 Please download and install a selenium webdriver for your specific browser:
 [https://www.selenium.dev/selenium/docs/api/py/#drivers](https://www.selenium.dev/selenium/docs/api/py/#drivers)
 ! Make sure it’s in your PATH, e. g., place it in /usr/bin or /usr/local/bin.
