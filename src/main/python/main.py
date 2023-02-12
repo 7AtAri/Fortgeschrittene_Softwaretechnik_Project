@@ -77,7 +77,7 @@ def schedule(user_info1, appointment_wish1, bot_search_interval1):
         bot.use_element("click", browser, "agbgelesen", By.ID)
 
         # bot submits the appointment registration:
-        # !!! out comment in if you don't really want to book an appointment:
+        # !!! out comment if you don't really want to book an appointment:
         bot.use_element("click", browser, "register_submit", By.ID)
 
         browser.quit()  # selenium browser object is shut down
