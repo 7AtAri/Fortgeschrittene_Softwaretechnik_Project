@@ -1,7 +1,6 @@
 import geckodriver_autoinstaller
 from pyvirtualdisplay import Display
 import unittest
-from unittest.mock import patch
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -46,12 +45,6 @@ class AppointmentBotTest(unittest.TestCase):
     def test_search_appment_type_anmeldung(self):
         # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Anmelden einer Wohnung"))
-
-    @staticmethod
-    def test_get_url_content():
-        with patch('main.requests.get') as mocked_get:
-            mocked_get.return_value.ok = True
-            mocked_get.return_value.text = 'Success'
 
     def tearDown(self) -> None:
         self.driver.quit()
