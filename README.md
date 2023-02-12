@@ -29,7 +29,11 @@ For the whole CI-Pipeline additionally:
 
 6) pybuilder
 7) pyvirtualdisplay
-8) geckodriver_autoinstaller / chromedriver_autoinstaller
+8) geckodriver_autoinstaller
+
+For the DSL-Demo-Example:
+9) textX
+10) pandas
 
 or use the provided requirements text file:
 ```diff 
@@ -128,12 +132,9 @@ My favorite Key-Shortcuts are:
 
 In my code I used Domain Specific Languages like [Regex](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/b70d9798e5442b6cdc6f25cb50c4bbcd42521b24/src/main/python/user_input.py#L36) and [HTML](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/b70d9798e5442b6cdc6f25cb50c4bbcd42521b24/src/main/python/civilservice_bot.py#L162). 
 
-```diff 
-- TODO:
-- Create a small DSL Demo example snippet in your code 
-- even if it does not contribute to your project
-- (hence it can also be in another language).
-```
+I also did a [DSL Demo example](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/tree/main/DSL) with
+textX, a meta-language for building Domain-Specific Languages (DSLs) in Python. Unfortunately it does not contribute to my project, instead plays with morse code. At the moment it can only be used as a telegraph. Translation of the morse code is still done outside the DSL, but it could maybe be developed to a morse code translater dsl with some more time.
+
 
 ### 11 - Functional Programming:
 
