@@ -1,0 +1,11 @@
+sentence what_does_it_mean
+    word ....+.+.-..+.--.
+end
+
+sentence what_does_this_mean
+    word ....+..+.--.
+end
+
+translate what_does_it_mean
+
+translate what_does_this_mean

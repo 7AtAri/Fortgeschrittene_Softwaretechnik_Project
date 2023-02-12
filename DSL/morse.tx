@@ -1,0 +1,48 @@
+
+/** This is just a small Demo 
+
+    This is just a Telegraph at the moment
+    it just sends the morse code in a packed form.
+    But it could be developed to a morse code translator
+    with some more time. 
+    
+**/
+
+
+Telegraph:
+    sentences*=Sentence
+    translate_instructions*=TranslateInstruction
+;
+
+
+Alphabet:
+    'Latin' | 'Morse'
+;
+
+Sentence:
+    'sentence' name=ID
+    word+=Word
+    'end'
+;
+
+Word: 'word'
+    morse=MorseLetter*['']
+;
+
+
+MorseLetter:
+    ('+'| '.-' | '-...' | '-.-.' | '-..' | '.' | '..-.' | '--.' | '....' | '..' | '.---' | '-.-' | '.-..' | '--' | '-.' | '---' | '.--.' | '--.-' | '.-.' | '...' | '-' | '..-' | '...-' | '.--' | '-..-' | '-.--' | '--..')+
+;
+
+TranslateInstruction:
+    'translate' sentence=[Sentence] direction=Direction?
+;
+
+
+Direction:
+    'from' x=Alphabet 'to' y=Alphabet
+;
+
+Comment:
+    /\/\*(.|\n)*?\*\// | /\/\/.*?$/
+;
