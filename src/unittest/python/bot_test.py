@@ -1,8 +1,7 @@
-# import chromedriver_autoinstaller
 import geckodriver_autoinstaller
 from pyvirtualdisplay import Display
 import unittest
-# from unittest.mock import patch
+from unittest.mock import patch
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -24,7 +23,6 @@ display = Display(visible=False, size=(800, 800))
 display.start()
 
 geckodriver_autoinstaller.install()
-# chromedriver_autoinstaller.install()
 
 
 class AppointmentBotTest(unittest.TestCase):
@@ -32,7 +30,6 @@ class AppointmentBotTest(unittest.TestCase):
     # @classmethod
     def setUp(self):
         self.driver = webdriver.Firefox()
-        # self.driver = webdriver.Chrome() # option if you are using chrome
         self.driver.implicitly_wait(5)
 
         # navigate to the civil service page
@@ -50,18 +47,12 @@ class AppointmentBotTest(unittest.TestCase):
         # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Anmelden einer Wohnung"))
 
-    # def...():
-    #     self.browser.get('https://service.berlin.de/terminvereinbarung')
-    #     self.assertIn('Google', self.browser.title)
+    @staticmethod
+    def test_get_url_content():
+        with patch('main.requests.get') as mocked_get:
+            mocked_get.return_value.ok = True
+            mocked_get.return_value.text = 'Success'
 
-    # # @staticmethod
-    # def test_get_url_content(self):
-    #     with patch('main.requests.get') as mocked_get:
-    #         mocked_get.return_value.ok = True
-    #         mocked_get.return_value.text = 'Success'
-
-    # @classmethod
-    # to close the browser in the end
     def tearDown(self) -> None:
         self.driver.quit()
 
@@ -84,4 +75,3 @@ if __name__ == '__main__':
     geckodriver_autoinstaller.install()
     # chromedriver_autoinstaller.install()
     unittest.main()
-
