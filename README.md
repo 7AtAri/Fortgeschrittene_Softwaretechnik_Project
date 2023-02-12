@@ -13,6 +13,9 @@ e.g. possible use cases:
 - Booking an appointment to get a (new) passport
 - Booking an appointment to get a (new) ID
 
+Be aware, that it Bot actually books you an appointment at the Berlin Civil Service.
+!!! if you don't want to really book an appointment, please [out-comment this line](https://github.com/7AtAri/Fortgeschrittene_Softwaretechnik_Project/blob/598a539043de9ffef8297085fe602aaa9dfa07e3/src/main/python/main.py#L81).
+
 ### Requirements:
 What you will need to install the project:
 
