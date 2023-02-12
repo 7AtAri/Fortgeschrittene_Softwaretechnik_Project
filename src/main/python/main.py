@@ -31,7 +31,6 @@ import time
 from user_input import UserInfo, AppointmentWish, BotSearchInterval
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-# from selenium.webdriver.firefox.options import Options
 import civilservice_bot as bot
 import secrets
 
@@ -42,9 +41,6 @@ def create_browser_marionette(url1):
     :param url1: url-webaddress
     :return: browser object
     """
-    # options = Options()
-    # options.headless = True  # headless mode means that the code executes in the background
-    # browser1 = webdriver.Firefox(options)
     browser1 = webdriver.Firefox()
     browser1.get(url1)
     browser1.implicitly_wait(3)  # webdriver object now waits 3 seconds between each call
