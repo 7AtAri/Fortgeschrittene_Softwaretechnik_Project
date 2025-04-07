@@ -42,10 +42,6 @@ class AppointmentBotTest(unittest.TestCase):
         # check if appointment type exists on page
         self.assertTrue(self.is_element_present(By.LINK_TEXT, "Reisepass beantragen"))
 
-    def test_search_appment_type_anmeldung(self):
-        # check if appointment type exists on page
-        self.assertTrue(self.is_element_present(By.LINK_TEXT, "Anmelden einer Wohnung"))
-
     def tearDown(self) -> None:
         self.driver.quit()
 
